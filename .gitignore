@@ -1,7 +1,5 @@
 node_modules/
-public/styles
 .env
 *.log
 *.sqlite3
-views/config.js
 */**/config.js
