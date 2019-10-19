@@ -9,13 +9,11 @@
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
-    <script type="text/javascript" src="/scripts/browse.js"></script>
-    <script type='text/javascript' src='./config.js'></script>
-    <script type='text/javascript' src='./key_comb.js'></script>
+    <script type='text/javascript' src='/scripts/config.js'></script>
 
     <style>
       /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
+      * element that contains the map. */
       #map {
         height: 100%;
       }
@@ -26,42 +24,12 @@
         margin: 0;
         padding: 0;
       }
-    </style>
+      </style>
   </head>
 
   <body>
     <h1>Hello User!</h1>
     <div id="map"></div>
-    <script>
-      var map;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 16,
-          center: new google.maps.LatLng(43.644190,-79.402022),
-          mapTypeId: 'roadmap'
-        });
-
-        // Create a <script> tag and set the USGS URL as the source.
-        var script = document.createElement('script');
-        script.src = '../scripts/restaurantMarkers.js';
-        document.getElementsByTagName('head')[0].appendChild(script);
-      }
-
-      // Loop through the results array and place a marker for each
-      // set of coordinates.
-      window.restofeed_callback = function(results) {
-        for (var i = 0; i < results.features.length; i++) {
-          var coords = results.features[i].geometry.coordinates;
-          var latLng = new google.maps.LatLng(coords[0],coords[1]);
-          var marker = new google.maps.Marker({
-            position: latLng,
-            map: map
-          });
-        }
-      }
-    </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=API_KEY&callback=initMap">
-    </script>
+    <script async defer type='text/javascript' src='/scripts/map.js'></script>
   </body>
-</html>
+  </html>
