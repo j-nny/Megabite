@@ -1,4 +1,4 @@
-eqfeed_callback(
+restofeed_callback(
   {
     type: "Feature",
     features: [
@@ -28,6 +28,21 @@ eqfeed_callback(
           type: "Point",
           coordinates: [
             43.645316, -79.397570
+          ]
+        },
+        id: "2"
+      },
+      {
+        type: "Feature",
+        properties: {
+          place: "Rodney's Oyster House",
+          url: "https://www.rodsoysterhouse.com",
+          status: "REVIEWED"
+        },
+        geometry: {
+          type: "Point",
+          coordinates: [
+            43.644962, -79.396821
           ]
         },
         id: "2"
