@@ -11,26 +11,25 @@ const sass       = require("node-sass-middleware");
 const app        = express();
 const morgan     = require('morgan');
 
-// PG database client/connection setup
-const { Pool } = require('pg');
-const dbParams = require('./lib/db.js');
-const db = new Pool(dbParams);
-db.connect();
-
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
 app.use(morgan('dev'));
-
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
+<<<<<<< HEAD
 
+=======
+>>>>>>> routes
 app.use(cookieSession({
   name: 'session',
   keys: ["key"],
   maxAge: 24 * 60 * 60 * 1000 // 24 hours
 }));
+<<<<<<< HEAD
 
+=======
+>>>>>>> routes
 app.use("/styles", sass({
   src: __dirname + "/styles",
   dest: __dirname + "/public/styles",
@@ -41,19 +40,19 @@ app.use(express.static("public"));
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
-const usersRoutes = require("./routes/users");
-const widgetsRoutes = require("./routes/widgets");
-const home = require("./routes/userRoutes/home");
-const userLogin = require("./routes/userRoutes/userLogin");
-const register = require("./routes/userRoutes/register");
-const orderHistory = require("./routes/userRoutes/orderHistory");
-const menu = require("./routes/userRoutes/menu");
-const browse = require("./routes/userRoutes/browse");
-const ownerlogin = require("./routes/ownerRoutes/ownerLogin");
+// const usersRoutes = require("./server/users");
+
+const home = require("./server/userRoutes/home");
+const userLogin = require("./server/userRoutes/userLogin");
+const register = require("./server/userRoutes/register");
+const orderHistory = require("./server/userRoutes/orderHistory");
+const menu = require("./server/userRoutes/menu");
+const browse = require("./server/userRoutes/browse");
+const ownerlogin = require("./server/ownerRoutes/ownerLogin");
+
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
-app.use("/api/users", usersRoutes(db));
-app.use("/api/widgets", widgetsRoutes(db));
+
 app.use("/", home);
 app.use("/login", userLogin);
 app.use("/register", register);
