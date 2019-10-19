@@ -1,9 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
+// use middleware to add user to res.locals
+
 router.get('/', (req, res) => {
-  console.log("Login page!");
-  res.send("Hello from login!");
+  console.log("Order history!");
+  res.send("Hello from order history!");
 });
 
 module.exports = router;
