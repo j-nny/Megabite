@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
@@ -18,18 +19,17 @@
         height: 100%;
       }
       /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 80%;
-        width: 70%;
-        margin: 0;
-        padding: 0;
-      }
       </style>
   </head>
 
   <body>
-    <h1>Hello User!</h1>
-    <div id="map"></div>
-    <script async defer type='text/javascript' src='/scripts/map.js'></script>
+    <header><% include ./partials/_header %></header>
+    <div class="container">
+      <main>Order History</main>
+      <map>
+        <div id="map"></div>
+        <script async defer type='text/javascript' src='/scripts/map.js'></script>
+      </map>
+    </div>
   </body>
-  </html>
+</html>
