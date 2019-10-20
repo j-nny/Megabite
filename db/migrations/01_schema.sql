@@ -10,7 +10,7 @@ CREATE TABLE users (
   last_name VARCHAR(255) NOT NULL,
   email VARCHAR(255) NOT NULL,
   password VARCHAR(255) NOT NULL,
-  phone_number VARCHAR(255) NOT NULL,
+  phone_number VARCHAR(10) NOT NULL,
   role VARCHAR(255) NOT NULL
 );
 
@@ -29,17 +29,17 @@ active BOOLEAN NOT NULL DEFAULT FALSE
 CREATE TABLE orders (
   id SERIAL PRIMARY KEY NOT NULL,
   quantity INTEGER NOT NULL,
-  time_entered TIMESTAMP NOT NULL,
-  time_promised TIMESTAMP NOT NULL,
+  time_entered DATE NOT NULL,
+  time_promised DATE NOT NULL,
   customer_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   restaurant_id INTEGER REFERENCES restaurants(id) ON DELETE CASCADE,
   active BOOLEAN NOT NULL DEFAULT FALSE
 );
 
-CREATE TABLE order_items(
-  order_id INTEGER REFERENCES orders(id) ON DELETE CASCADE,
-  item_id INTEGERS REFERENCES items(id) ON DELETE CASCADE,
-  quantity INTEGER NOT NULL
+CREATE TABLE menus(
+  id SERIAL PRIMARY KEY NOT NULL,
+  name VARCHAR(255) NOT NULL,
+  restaurant_id INTEGER REFERENCES restaurants(id) ON DELETE CASCADE
 );
 
 CREATE TABLE items(
@@ -48,13 +48,15 @@ CREATE TABLE items(
   name VARCHAR(255) NOT NULL,
   description TEXT,
   price INTEGER NOT NULL,
-  size VARCHAR(255) NOT NULL,
-  menu_id INTEGER REFERNCES menus(id) ON DELETE CASCADE,
+  size VARCHAR(255),
+  menu_id INTEGER REFERENCES menus(id) ON DELETE CASCADE,
   active BOOLEAN NOT NULL DEFAULT TRUE
 );
 
-CREATE TABLE menus(
-  id SERIAL PRIMARY KEY NOT NULL,
-  name VARCHAR(255) NOT NULL,
-  restaurant_id INTEGER REFERENCES restaurants(id) ON DELETE CASCADE
+
+
+CREATE TABLE order_items(
+  order_id INTEGER REFERENCES orders(id) ON DELETE CASCADE,
+  item_id INTEGER REFERENCES items(id) ON DELETE CASCADE,
+  quantity INTEGER NOT NULL
 );
