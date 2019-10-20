@@ -35,3 +35,7 @@
 body {
   overflow: hidden;
 }
+
+h2 {
+  margin:0;
+}
