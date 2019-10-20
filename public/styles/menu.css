@@ -1,35 +1,61 @@
 .menu-container {
   max-width: 100vw;
   max-height:100vh;
-  margin: 10px;
   display:grid;
   grid-template-rows: 80px auto auto;
+  background-color: rgb(240, 240, 240);
+  overflow: scroll;
 }
 
 .resto-name {
-  /* margin-top: 90px; */
-  border: solid;
+  background-color: white;
+  border-radius:8px;
+  margin: 10px 10px 0px 10px;
+  padding: 10px;
+}
+
+.prev-orders {
+  margin-bottom: 10px;
+  border-radius:8px;
+  background-color: white;
+  padding: 10px;
 }
 
 .prev-order {
-  border: solid;
+  margin: 10px;
 }
 
 .menu-main {
-  border: solid;
   display:grid;
   grid-template-columns: 3fr 1.5fr;
+  background-color: rgb(240, 240, 240);
 }
 
 .items {
-  border: solid;
+  background-color: rgb(240, 240, 240);
+  border-radius:8px;
+  margin: 10px 0px 10px 10px;
 }
 
 .item {
-  border: solid;
+  margin-bottom: 5px;
+  border-radius:8px;
+  background-color: white;
+  padding: 10px;
+}
+
+.item-desc {
+  margin: 0;
 }
 
 .cart {
   grid-auto-rows: auto;
-  border: solid;
+  border-radius:8px;
+  background-color: white;
+  margin: 10px;
+  padding: 10px;
+}
+
+.menu-container > * {
+  padding: 0.1rem;
 }
