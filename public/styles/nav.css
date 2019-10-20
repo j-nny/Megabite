@@ -7,40 +7,21 @@
 }
 
 #navbar {
+  display: flex;
   height:80px;
-  background-color: rgba(0, 0, 0, 0.1);
-  padding: 2rem 1rem 1rem 1rem;
+  background-color: rgb(0, 225, 255);
+  opacity: 0.4;
+  padding: 1rem 1rem 1rem 1rem;
 }
 
-.container {
-  max-width: 100%;
-  max-height: 100%;
-  margin: 2em auto;
-  display: grid;
-  grid-template-columns: 2fr 3fr;
+.navbar-brand {
+  color: white;
+  font-family: 'Lobster', cursive;
+  font-size: 50px;
+  text-decoration: none;
 }
 
-.container header {
-  grid-area: 1/1/2/5;
-  padding: 1rem;
-}
-
-.container main {
-  margin-top:48px;
-  /* grid-area: 1/auto/2/auto; */
-  grid-auto-rows: auto;
-  height: 400%;
-  padding: 1rem;
-}
-
-.container map {
-  margin-top:48px;
-  /* grid-area: 1/auto/2/auto; */
-  height: 400%;
-  grid-auto-rows: auto;
-}
-
-.container > * {
-  background-color: #ddd;
-  padding: 0.1rem;
+.navbar-nav {
+  padding: 1.6rem 0rem 1rem 1rem;
+  margin-left: auto;
 }
