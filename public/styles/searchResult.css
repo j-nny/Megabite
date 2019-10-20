@@ -1,0 +1,48 @@
+#restaurantResult {
+  display:grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.tab {
+  background-color: rgb(240, 240, 240);
+  border-radius: 8px;
+  border: solid;
+  border-color: rgb(220, 220, 220);
+  text-align: center;
+  text-decoration: none;
+  display:inline-block;
+  width: 49.5%;
+  height: 40px;
+}
+
+.tab_active {
+  background-color: white;
+  border: none;
+}
+
+.searchResults {
+  overflow-y: scroll;
+  background-color: white;
+  border-radius:8px;
+  margin-top: 10px;
+}
+
+#result {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  margin-top: 20px;
+  border: 1;
+  background-color: white;
+}
+
+#result_img {
+  margin: 10px;
+}
+
+.thumb_resize {
+  height: 150px;
+}
+
+#result_description {
+
+}
