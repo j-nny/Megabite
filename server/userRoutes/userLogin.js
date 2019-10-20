@@ -11,7 +11,7 @@ router.get("/", (req, res) => {
       user_name: req.session.user_name,
       user_email: req.session.email,
     };
-    res.render("test", templateVars);
+    res.render("login", templateVars);
   }
 });
 
@@ -29,7 +29,7 @@ router.post('/', (req, res) => {
     })
     .catch(e => {
       // res.send(e);
-      res.render('test', { errors: ['Invalid email or password'] })
+      res.render('login', { errors: ['Invalid email or password'] })
     });
 });
 

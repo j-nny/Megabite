@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
   console.log("Order history!");
-  res.send("Hello from order history!");
+  res.render("history");
 });
 
 module.exports = router;
