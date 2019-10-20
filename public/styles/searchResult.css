@@ -21,7 +21,7 @@
 }
 
 .searchResults {
-  overflow-y: scroll;
+  overflow-y: auto;
   background-color: white;
   border-radius:8px;
   margin-top: 10px;
@@ -41,8 +41,4 @@
 
 .thumb_resize {
   height: 150px;
-}
-
-#result_description {
-
 }
