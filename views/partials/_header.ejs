@@ -7,10 +7,15 @@
       <a class="navbar-brand" href="/">Bon Appetit</a>
     </div>
     <div class="navbar-nav ml-auto">
-      <input type="text" id="categorySearch" name="category" size="30" placeholder="Category">
-      <input type="text" id="locationSearch" name="location" size="30" placeholder="Location">
-      <button>Login</button>
-      <button>Register</button>
+      <% if (true) { %>
+        <input type="text" id="categorySearch" class="search" name="category" size="30" placeholder="Category">
+        <input type="text" id="locationSearch" class="search" name="location" size="30" placeholder="Location">
+        <button class="navbar-btn">Search</button>
+        <button class="navbar-btn">Logout</button>
+      <% } else { %>
+        <button class="navbar-btn">Login</button>
+        <button class="navbar-btn">Register</button>
+      <% } %>
     </div>
   </div>
 </header>
