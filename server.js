@@ -17,19 +17,11 @@ const morgan     = require('morgan');
 app.use(morgan('dev'));
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
-<<<<<<< HEAD
-
-=======
->>>>>>> routes
 app.use(cookieSession({
   name: 'session',
   keys: ["key"],
   maxAge: 24 * 60 * 60 * 1000 // 24 hours
 }));
-<<<<<<< HEAD
-
-=======
->>>>>>> routes
 app.use("/styles", sass({
   src: __dirname + "/styles",
   dest: __dirname + "/public/styles",
