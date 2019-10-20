@@ -13,26 +13,10 @@
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
 
-  <title>Registration Form</title>
+  <title>Owner login</title>
 </head>
 <body>
-  <section>
-      <div style="border: lightgray solid 1px; padding: 40px 30px 30px; margin: 3rem auto; width: 25rem; border-radius: 10px;">
-          <form method="POST" action="/register">
-            <h3>Sign Up</h3>
-              <div class="form-group">
-                <label for="emailInput">Email address</label>
-                <input type="email" class="form-control" id="emailInput" name="email" placeholder="Enter email">
-                <small class="form-text text-muted">Enter details to register.</small>
-              </div>
-              <div class="form-group">
-                <label for="passwordInput">Password</label>
-                <input type="password" class="form-control" id="passwordInput" name="password" placeholder="Password">
-              </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-      </div>
-
+    <header><% include ./partials/_header %></header>
       <div style="border: lightgray solid 1px; padding: 40px 30px 30px; margin: 3rem auto; width: 25rem; border-radius: 10px;">
         <h3>Log in your Account</h3>
         <form method="POST" action="/login">
@@ -48,9 +32,6 @@
               <button type="submit" class="btn btn-primary">Login</button>
             </form>
       </div>
-  </section>
-
-
 
   <!-- Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
