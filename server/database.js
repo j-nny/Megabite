@@ -46,3 +46,11 @@ const addUser =  function(user) {
   return db.query(queryString, [user.first_name, user.last_name, user.email, user.password, user.phone_number])
 }
 exports.addUser = addUser;
+
+const getMenu = function(id) {
+  return db.query(`SELECT items.name as item_name, restaurants.name as restaurant_name FROM items
+  JOIN menus ON menus.id = menu_id
+  JOIN restaurants ON restaurant_id = restaurants.id
+  WHERE restaurant_id = $1;`, [id])
+}
+exports.getMenu = getMenu;
