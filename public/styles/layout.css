@@ -3,28 +3,7 @@
   max-height:100vh;
   display: grid;
   grid-template-columns: 2fr 3fr;
-}
-
-.container header {
-  grid-area: 1/1/2/5;
-  padding: 1rem;
-}
-
-.container main {
-  /* margin-top:48px; */
-  /* grid-area: 1/auto/2/auto; */
-  grid-auto-rows: auto;
-  height: 100vh;
-  padding: 90px 1rem 1rem 1rem;
-  font-family: 'Open Sans', sans-serif;
-}
-
-.container map {
-  /* margin-top:48px; */
-  padding-top:80px;
-  /* grid-area: 1/auto/2/auto; */
-  height: 100vh;
-  grid-auto-rows: auto;
+  overflow: hidden;
 }
 
 .container > * {
@@ -32,10 +11,6 @@
   padding: 0.1rem;
 }
 
-body {
-  overflow: hidden;
-}
-
-h2 {
+.reset {
   margin:0;
 }

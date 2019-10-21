@@ -33,9 +33,15 @@
   padding-left: 10px;
   text-decoration: none;
   display:inline-block;
-  width: 300px;
+  width: 200px;
   height: 30px
 }
+
+.container header {
+  grid-area: 1/1/2/5;
+  padding: 1rem;
+}
+
 
 .navbar-btn {
   background-color: rgb(245, 245, 245);
