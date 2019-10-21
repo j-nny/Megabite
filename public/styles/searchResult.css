@@ -3,9 +3,32 @@
   grid-template-columns: 1fr 2fr;
 }
 
+#map {
+  height: 100%;
+  overflow: hidden;
+}
+
+.container main {
+  /* margin-top:48px; */
+  /* grid-area: 1/auto/2/auto; */
+  grid-auto-rows: auto;
+  height: 100vh;
+  padding: 90px 1rem 1rem 1rem;
+  font-family: 'Open Sans', sans-serif;
+  overflow: scroll;
+}
+
+.container map {
+  /* margin-top:48px; */
+  padding-top:80px;
+  /* grid-area: 1/auto/2/auto; */
+  height: 100vh;
+  grid-auto-rows: auto;
+}
+
 .tab {
-  background-color: rgb(240, 240, 240);
-  border-radius: 8px;
+  background-color: rgb(220, 220, 220);
+  border-radius: 8px 8px 0% 0%;
   border: solid;
   border-color: rgb(220, 220, 220);
   text-align: center;
@@ -21,22 +44,24 @@
 }
 
 .searchResults {
-  overflow-y: auto;
   background-color: white;
-  border-radius:8px;
-  margin-top: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
 }
 
 #result {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  margin-top: 20px;
   border: 1;
   background-color: white;
 }
 
 #result_img {
   margin: 10px;
+}
+
+#result-description {
+  margin-top: 5px;
 }
 
 .thumb_resize {
