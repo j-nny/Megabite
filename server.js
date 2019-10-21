@@ -10,6 +10,7 @@ const cookieSession = require('cookie-session');
 const sass       = require("node-sass-middleware");
 const app        = express();
 const morgan     = require('morgan');
+const path       = require('path');
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
@@ -29,7 +30,8 @@ app.use("/styles", sass({
   debug: true,
   outputStyle: 'expanded'
 }));
-app.use(express.static("public"));
+// app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
