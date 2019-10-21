@@ -8,6 +8,24 @@
   overflow: hidden;
 }
 
+.container main {
+  /* margin-top:48px; */
+  /* grid-area: 1/auto/2/auto; */
+  grid-auto-rows: auto;
+  height: 100vh;
+  padding: 90px 1rem 1rem 1rem;
+  font-family: 'Open Sans', sans-serif;
+  overflow: scroll;
+}
+
+.container map {
+  /* margin-top:48px; */
+  padding-top:80px;
+  /* grid-area: 1/auto/2/auto; */
+  height: 100vh;
+  grid-auto-rows: auto;
+}
+
 .tab {
   background-color: rgb(220, 220, 220);
   border-radius: 8px 8px 0% 0%;
