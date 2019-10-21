@@ -11,19 +11,10 @@
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
     <script type='text/javascript' src='/scripts/config.js'></script>
-
-    <style>
-      /* Always set the map height explicitly to define the size of the div
-      * element that contains the map. */
-      #map {
-        height: 100%;
-      }
-      /* Optional: Makes the sample page fill the window. */
-      </style>
   </head>
 
   <body>
-    <div class=page-container>
+    <div class="page-container">
       <header><% include ./partials/_header %></header>
       <div class="container">
         <main>
@@ -31,44 +22,46 @@
             <button type="button" class="tab tab_active">Discover</button>
             <button type="button" class="tab">History</button>
           </div>
-          <div class="searchResults">
-            <div id="result">
-              <div id="result_img">
-                <img class="thumb_resize" src="https://image.shutterstock.com/image-illustration/cute-cartoon-dim-sum-traditional-260nw-1063999892.jpg">
-              </div>
-              <div id="result_description">
-                <h2>Lil BaoBao</h2>
-                <p>King/Bathurst</p>
-                <p>Chinese Food</br>Please don't eat me.</p>
-              </div>
-            </div>
-          </div>
-          <!-- For show only, delete later -->
-          <div class="searchResults">
+          <div class="discover">
+            <div class="searchResults">
               <div id="result">
                 <div id="result_img">
                   <img class="thumb_resize" src="https://image.shutterstock.com/image-illustration/cute-cartoon-dim-sum-traditional-260nw-1063999892.jpg">
                 </div>
                 <div id="result_description">
-                  <h2>Lil BaoBao</h2>
-                  <p>King/Bathurst</p>
+                  <h2 class="reset">Lil BaoBao</h2>
+                  <p>King/Bathurst</br>662 King St W</br>5 minutes away</p>
+                  <p>Chinese Food</br>Please don't eat me.</p>
+                </div>
+              </div>
+            </div>
+            <!-- For show only, delete later -->
+            <div class="searchResults">
+              <div id="result">
+                <div id="result_img">
+                  <img class="thumb_resize" src="https://image.shutterstock.com/image-illustration/cute-cartoon-dim-sum-traditional-260nw-1063999892.jpg">
+                </div>
+                <div id="result_description">
+                  <h2 class="reset">Lil BaoBao</h2>
+                  <p>King/Bathurst</br>662 King St W</br>5 minutes away</p>
                   <p>Chinese Food</br>Please don't eat me.</p>
                 </div>
               </div>
             </div>
             <div class="searchResults">
-                <div id="result">
-                  <div id="result_img">
-                    <img class="thumb_resize" src="https://image.shutterstock.com/image-illustration/cute-cartoon-dim-sum-traditional-260nw-1063999892.jpg">
-                  </div>
-                  <div id="result_description">
-                    <h2>Lil BaoBao</h2>
-                    <p>King/Bathurst</p>
-                    <p>Chinese Food</br>Please don't eat me.</p>
-                  </div>
+              <div id="result">
+                <div id="result_img">
+                  <img class="thumb_resize" src="https://image.shutterstock.com/image-illustration/cute-cartoon-dim-sum-traditional-260nw-1063999892.jpg">
+                </div>
+                <div id="result_description">
+                  <h2 class="reset">Lil BaoBao</h2>
+                  <p>King/Bathurst</br>662 King St W</br>5 minutes away</p>
+                  <p>Chinese Food</br>Please don't eat me.</p>
                 </div>
               </div>
+            </div>
               <!-- End delete -->
+            </div>
         </main>
         <map>
           <div id="map"></div>
