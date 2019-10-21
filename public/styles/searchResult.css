@@ -38,12 +38,11 @@
 .tab {
   background-color: rgb(220, 220, 220);
   border-radius: 8px 8px 0% 0%;
-  border: solid;
   border-color: rgb(220, 220, 220);
   outline: none;
   text-align: center;
   text-decoration: none;
-  padding: 5px;
+  padding: 10px;
   display:inline-block;
   width: 49.5%;
   height: 40px;
