@@ -19,10 +19,7 @@
   <div class="menu-container">
     <header><% include ./partials/_header %></header>
     <div>
-      <%= console.log(data) %>
-      <% for (let item of data) { %>
-      <h1 class="reset resto-name"><%= item.restaurant_name %></h1>
-      <% } %>
+      <h1 class="reset resto-name"><%= data[0].restaurant_name %></h1>
     </div>
     <div class="menu-main">
       <div class="items">
@@ -35,8 +32,9 @@
         </div>
         <% for (let item of data) { %>
         <div class="item">
+            <span>$<%= item.price/100 %></span>
           <h2 class="reset"><%= item.item_name %></h2>
-          <p class="item-desc">Nothing fancy.</p>
+          <p class="item-desc"><%=item.description%></p>
         </div>
         <% } %>
         <div class="item">
