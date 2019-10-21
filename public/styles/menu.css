@@ -55,11 +55,12 @@
   margin: 10px;
   padding: 10px;
   min-height: 200px;
+  max-height: calc(100vh - 150px);
   position: fixed;
   width: 31.5%;
   bottom: 0;
   right: 0;
-  overflow: hidden;
+  overflow: scroll;
 }
 
 .menu-container > * {

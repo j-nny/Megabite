@@ -1,6 +1,19 @@
 #restaurantResult {
   display:grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 200px auto;
+}
+
+.container {
+  max-width: 100vw;
+  max-height:100vh;
+  display: grid;
+  grid-template-columns: 500px 3fr;
+  overflow: hidden;
+}
+
+.container > * {
+  background-color: rgb(240, 240, 240);
+  padding: 0.1rem;
 }
 
 #map {
@@ -9,8 +22,6 @@
 }
 
 .container main {
-  /* margin-top:48px; */
-  /* grid-area: 1/auto/2/auto; */
   grid-auto-rows: auto;
   height: 100vh;
   padding: 90px 1rem 1rem 1rem;
@@ -19,9 +30,7 @@
 }
 
 .container map {
-  /* margin-top:48px; */
   padding-top:80px;
-  /* grid-area: 1/auto/2/auto; */
   height: 100vh;
   grid-auto-rows: auto;
 }
@@ -31,11 +40,14 @@
   border-radius: 8px 8px 0% 0%;
   border: solid;
   border-color: rgb(220, 220, 220);
+  outline: none;
   text-align: center;
   text-decoration: none;
+  padding: 5px;
   display:inline-block;
   width: 49.5%;
   height: 40px;
+  cursor: pointer;
 }
 
 .tab_active {
