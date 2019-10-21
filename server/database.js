@@ -31,6 +31,12 @@ const login =  function(email, password) {
 }
 exports.login = login;
 
+const populateSideBar = function (){
+  // let resultArray = [];
+  return db.query(`SELECT * FROM restaurants;`);
+}
+exports.populateSideBar = populateSideBar;
+
 const addUser =  function(user) {
   const queryString =`
     INSERT INTO users(name, number, email, password)
