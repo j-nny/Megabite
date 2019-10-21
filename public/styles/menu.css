@@ -55,7 +55,7 @@
   margin: 10px;
   padding: 10px;
   min-height: 200px;
-  max-height: calc(100vh - 150px);
+  max-height: calc(100vh - 200px);
   position: fixed;
   width: 31.5%;
   bottom: 0;

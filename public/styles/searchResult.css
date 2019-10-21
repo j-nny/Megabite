@@ -36,12 +36,12 @@
 }
 
 .tab {
-  background-color: rgb(220, 220, 220);
+  background-color: rgb(230, 230, 230);
   border-radius: 8px 8px 0% 0%;
-  border-color: rgb(220, 220, 220);
   outline: none;
   text-align: center;
   text-decoration: none;
+  color: black;
   padding: 10px;
   display:inline-block;
   width: 49.5%;
