@@ -11,7 +11,7 @@ CREATE TABLE users (
   email VARCHAR(255) NOT NULL,
   password TEXT NOT NULL,
   phone_number TEXT NOT NULL,
-  role VARCHAR(255) NOT NULL
+  role VARCHAR(255) NOT NULL DEFAULT 'customer'
 );
 
 CREATE TABLE restaurants (

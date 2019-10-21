@@ -33,18 +33,10 @@ exports.login = login;
 
 const addUser =  function(user) {
   const queryString =`
-    INSERT INTO users(name, number, email, password)
-    VALUES($1, $2, $3, $4)
+    INSERT INTO users (first_name, last_name, email, password, phone_number)
+    VALUES($1, $2, $3, $4, $5)
     RETURNING *;`;
 
-  return db.query(queryString, [user.name, user.number, user.email, user.password])
-    .then(res => {
-      console.log(user);
-      res.rows[0];
-    })
-    .then(user => {
-      return db.query(`SELECT * FROM users WHERE email = $1`, [user.email])
-    })
-    .catch(err => console.error('query error', err.stack));
+  return db.query(queryString, [user.first_name, user.last_name, user.email, user.password, user.phone_number])
 }
 exports.addUser = addUser;

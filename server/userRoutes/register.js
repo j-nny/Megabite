@@ -16,6 +16,9 @@ router.post('/', (req, res) => {
   console.log(user);
   user.password = bcrypt.hashSync(user.password, 12);
   db.addUser(user)
+  .then(res => {
+    return res.rows[0];
+  })
   .then(user => {
     console.log(user);
     req.session.user_id = user.id;
