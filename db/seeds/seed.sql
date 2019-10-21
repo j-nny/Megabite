@@ -1,10 +1,10 @@
 
 -- users seeds
 INSERT INTO users (first_name, last_name, email, password, phone_number, role) VALUES
-('Rick', 'Sandchez', 'rick.sandchez@gmail.com', 'picklerick', '1234567890', 'customer'),
-('Lisa', 'Simpson', 'lisa.simpson@gmail.com', 'ehhhhh', '1112131415', 'owner'),
-('Link', 'Link', 'link@yahoo.com', 'hyrule', '1617181920', 'customer'),
-('Simon', 'Belmont', 'simon_bel123@mail.ca', 'dracula', '2122232425', 'owner');
+('Rick', 'Sandchez', 'rick.sandchez@gmail.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', '1234567890', 'customer'),
+('Lisa', 'Simpson', 'lisa.simpson@gmail.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', '1112131415', 'owner'),
+('Link', 'Link', 'link@yahoo.com', 'hyrule', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', 'customer'),
+('Simon', 'Belmont', 'simon_bel123@mail.ca', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', '2122232425', 'owner');
 
 -- restaurants seeds
 INSERT INTO restaurants (id, owner_id, name, category, address, city, province, postal_code, active) VALUES

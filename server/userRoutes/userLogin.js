@@ -4,14 +4,9 @@ const db = require("../database");
 
 router.get("/", (req, res) => {
   if (req.session.user_id) {
-    res.redirect("/");
+    res.redirect("/browse");
   } else {
-    let templateVars = {
-      user_id: req.session.user_id,
-      user_name: req.session.user_name,
-      user_email: req.session.email,
-    };
-    res.render("login", templateVars);
+    res.render("login");
   }
 });
 
@@ -25,7 +20,7 @@ router.post('/', (req, res) => {
         return;
       }
       req.session.user_id = user.id
-      res.redirect('/')
+      res.redirect('/browse')
     })
     .catch(e => {
       // res.send(e);

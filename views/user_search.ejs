@@ -23,20 +23,23 @@
             <a href="/history" class="tab">History</a>
           </div>
           <div class="discover">
-            <div class="searchResults">
-              <div id="result">
-                <div id="result_img">
-                  <img class="thumb_resize" src="https://image.shutterstock.com/image-illustration/cute-cartoon-dim-sum-traditional-260nw-1063999892.jpg">
-                </div>
-                <div id="result-description">
-                  <h2 class="reset">Lil BaoBao</h2>
-                  <p>King/Bathurst</br>662 King St W</br>5 minutes away</p>
-                  <p>Chinese Food</br>Please don't eat me.</p>
-                </div>
-              </div>
-            </div>
             <!-- For show only, delete later -->
+          <% for (let i of data){ %>
             <div class="searchResults">
+              <% i.id %>
+              <div id="result">
+                <div id="result_img">
+                  <img class="thumb_resize" src="https://image.shutterstock.com/image-illustration/cute-cartoon-dim-sum-traditional-260nw-1063999892.jpg">
+                </div>
+                <div id="result-description">
+                  <h2 class="reset"><%= i.name %></h2>
+                  <p><%=i.address%></br>5 minutes away</p>
+                  <p><%= i.category%></p>
+                </div>
+              </div>
+            </div>
+            <% }%>
+            <!-- <div class="searchResults">
               <div id="result">
                 <div id="result_img">
                   <img class="thumb_resize" src="https://image.shutterstock.com/image-illustration/cute-cartoon-dim-sum-traditional-260nw-1063999892.jpg">
@@ -59,7 +62,7 @@
                   <p>Chinese Food</br>Please don't eat me.</p>
                 </div>
               </div>
-            </div>
+            </div> -->
               <!-- End delete -->
             </div>
         </main>
