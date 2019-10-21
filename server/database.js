@@ -10,9 +10,7 @@ const getUserWithEmail = function(email) {
   const queryString = `SELECT * FROM users WHERE email = $1;`
   return db.query(queryString,[email])
   .then(res => {
-    console.log("inside this func")
     if(res) {
-      console.log(res.rows);
       return res.rows[0];
     } else {
       return null;
@@ -22,7 +20,7 @@ const getUserWithEmail = function(email) {
 exports.getUserWithEmail = getUserWithEmail;
 
 const login =  function(email, password) {
-   return getUserWithEmail(email)
+  return getUserWithEmail(email)
   .then(user => {
     if (bcrypt.compareSync(password, user.password)) {
       return user;
@@ -32,3 +30,21 @@ const login =  function(email, password) {
   });
 }
 exports.login = login;
+
+const addUser =  function(user) {
+  const queryString =`
+    INSERT INTO users(name, number, email, password)
+    VALUES($1, $2, $3, $4)
+    RETURNING *;`;
+
+  return db.query(queryString, [user.name, user.number, user.email, user.password])
+    .then(res => {
+      console.log(user);
+      res.rows[0];
+    })
+    .then(user => {
+      return db.query(`SELECT * FROM users WHERE email = $1`, [user.email])
+    })
+    .catch(err => console.error('query error', err.stack));
+}
+exports.addUser = addUser;
