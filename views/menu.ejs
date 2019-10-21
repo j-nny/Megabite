@@ -19,7 +19,10 @@
   <div class="menu-container">
     <header><% include ./partials/_header %></header>
     <div>
-      <h1 class="reset resto-name">Lil BaoBao</h1>
+      <%= console.log(data) %>
+      <% for (let item of data) { %>
+      <h1 class="reset resto-name"><%= item.restaurant_name %></h1>
+      <% } %>
     </div>
     <div class="menu-main">
       <div class="items">
@@ -30,10 +33,12 @@
             <p>Oct 10, 2019 10:30AM</p>
           </div>
         </div>
+        <% for (let item of data) { %>
         <div class="item">
-          <h2 class="reset">Cha Siu Bao</h2>
+          <h2 class="reset"><%= item.item_name %></h2>
           <p class="item-desc">Nothing fancy.</p>
         </div>
+        <% } %>
         <div class="item">
           <h2 class="reset"> Xiao Long Bao</h2>
           <p class="item-desc">Nothing fancy.</p>
