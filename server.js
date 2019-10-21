@@ -67,7 +67,7 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 app.get("/restaurants/:id/menu", (req, res) => {
-  console.log(">>>>>>", req.params)
+  console.log(">>>>>>", req.params.id)
   db.getMenu(req.params.id)
   .then(res => {
     if (res) {

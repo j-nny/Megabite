@@ -3,7 +3,6 @@
   max-height:100vh;
   display:grid;
   grid-template-rows: 80px auto auto;
-  background-color: rgb(240, 240, 240);
 }
 
 .resto-name {
@@ -27,6 +26,7 @@
 .menu-main {
   display:grid;
   grid-template-columns: 3fr 1.5fr;
+  height: 100vh;
   background-color: rgb(240, 240, 240);
 }
 
@@ -65,4 +65,5 @@
 
 .menu-container > * {
   padding: 0.1rem;
+  background-color: rgb(240, 240, 240);
 }
