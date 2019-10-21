@@ -1,16 +1,7 @@
-.container {
-  max-width: 100vw;
-  max-height:100vh;
-  display: grid;
-  grid-template-columns: 2fr 3fr;
-  overflow: hidden;
-}
-
-.container > * {
-  background-color: rgb(240, 240, 240);
-  padding: 0.1rem;
-}
-
 .reset {
   margin:0;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
 }
