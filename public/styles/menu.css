@@ -4,7 +4,6 @@
   display:grid;
   grid-template-rows: 80px auto auto;
   background-color: rgb(240, 240, 240);
-  overflow: scroll;
 }
 
 .resto-name {
@@ -35,6 +34,7 @@
   background-color: rgb(240, 240, 240);
   border-radius:8px;
   margin: 10px 0px 10px 10px;
+  overflow: scroll;
 }
 
 .item {
@@ -54,6 +54,7 @@
   background-color: white;
   margin: 10px;
   padding: 10px;
+  height: 60vh;
 }
 
 .menu-container > * {
