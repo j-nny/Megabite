@@ -25,8 +25,8 @@
           <div class="discover">
             <!-- For show only, delete later -->
           <% for (let i of data){ %>
+            <a class="reset" href="/restaurants/<%=i.id%>/menu">
             <div class="searchResults">
-              <% i.id %>
               <div id="result">
                 <div id="result_img">
                   <img class="thumb_resize" src="https://image.shutterstock.com/image-illustration/cute-cartoon-dim-sum-traditional-260nw-1063999892.jpg">
@@ -35,10 +35,10 @@
                   <h2 class="reset"><%= i.name %></h2>
                   <p><%=i.address%></br>5 minutes away</p>
                   <p><%= i.category%></p>
-                  <a href="/restaurants/:<%= id %>/menu">Chinese Food</br>Please don't eat me.</a>
                 </div>
               </div>
             </div>
+          </a>
             <% }%>
             <!-- <div class="searchResults">
               <div id="result">
