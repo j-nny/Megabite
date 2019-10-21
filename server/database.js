@@ -47,12 +47,6 @@ const addUser =  function(user) {
 }
 exports.addUser = addUser;
 
-const populateSideBar = function (){
-  // let resultArray = [];
-  return db.query(`SELECT * FROM restaurants;`);
-}
-exports.populateSideBar = populateSideBar;
-
 const getMenu = function(id) {
   return db.query(`SELECT items.name as item_name, restaurants.name as restaurant_name FROM items
   JOIN menus ON menus.id = menu_id
