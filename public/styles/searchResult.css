@@ -60,6 +60,10 @@
   margin: 10px;
 }
 
+#result-description {
+  margin-top: 5px;
+}
+
 .thumb_resize {
   height: 150px;
 }
