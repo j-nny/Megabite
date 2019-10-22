@@ -25,7 +25,7 @@
 
 .menu-main {
   display:grid;
-  grid-template-columns: 3fr 1.5fr;
+  grid-template-columns: 3fr 430px;
   height: 100vh;
   background-color: rgb(240, 240, 240);
 }
@@ -52,15 +52,58 @@
   grid-auto-rows: auto;
   border-radius:8px;
   background-color: white;
-  margin: 10px;
+  margin: 10px 20px 20px 10px;
   padding: 10px;
   min-height: 200px;
   max-height: calc(100vh - 200px);
   position: fixed;
-  width: 31.5%;
+  width: 400px;
   bottom: 0;
   right: 0;
   overflow: scroll;
+}
+
+.cart-effects {
+  background-color: #fff;
+	border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25),
+			0 10px 10px rgba(0,0,0,0.22);
+	position: relative;
+	overflow: hidden;
+	width: 768px;
+	max-width: 100%;
+	min-height: 480px;
+}
+
+.quantity {
+  border-radius: 4px;
+  border: solid thin;
+  padding-left: 10px;
+  text-decoration: none;
+  width: 60px;
+  height: 30px
+}
+
+.cart-btn {
+  background-color: rgb(240, 240, 240);
+  border-radius: 4px;
+  border: none;
+  padding-left: 10px;
+  text-decoration: none;
+  display:inline-block;
+  height: 30px;
+  margin: 0;
+}
+
+.submit-btn {
+	border-radius: 20px;
+	border: 1px solid #FFFFFF;
+	background-color: rgb(52, 194, 212);
+	color: #FFFFFF;
+	font-size: 12px;
+	padding: 10px 166px;
+	text-transform: uppercase;
+	transition: transform 70ms ease-in;
 }
 
 .menu-container > * {

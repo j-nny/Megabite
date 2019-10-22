@@ -32,9 +32,11 @@
         </div>
         <% for (let item of data) { %>
         <div class="item">
+          <div>
+            <h2 class="reset"><%= item.item_name %></h2>
+            <p class="item-desc"><%=item.description%></p>
             <span>$<%= item.price/100 %></span>
-          <h2 class="reset"><%= item.item_name %></h2>
-          <p class="item-desc"><%=item.description%></p>
+          </div>
         </div>
         <% } %>
         <div class="item">
@@ -42,18 +44,22 @@
           <p class="item-desc">Nothing fancy.</p>
         </div>
       </div>
-      <div id="cart">
+      <div id="cart" class="cart-effects">
         <h2 class="reset">Cart</h2>
-        1x Cha Siu Bao</br>
-        1x Cha Siu Bao</br>
-        1x Cha Siu Bao</br>
-        1x Cha Siu Bao</br>
-        1x Cha Siu Bao</br>
-        1x Cha Siu Bao</br>
-        1x Cha Siu Bao</br>
-        1x Cha Siu Bao</br>
-        1x Cha Siu Bao</br>
-        Grows with content!!!
+        </br>
+        <form id="cart-items">
+          <div id="cart-item">
+            <input class="quantity" type="number" value="1" min="0"> Cha Siu Bao | Price:</br>
+            <input class="quantity" type="number" value="1" min="0"> Cha Siu Bao | Price:</br>
+            <input class="quantity" type="number" value="1" min="0"> Cha Siu Bao | Price:</br>
+            <input class="quantity" type="number" value="1" min="0"> Cha Siu Bao | Price:</br>
+          </div>
+        </br>
+            Total:
+        </br>
+        </br>
+            <button class="submit-btn">Submit</button>
+        </form>
       </div>
     </div>
   </div>
