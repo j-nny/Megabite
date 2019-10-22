@@ -25,19 +25,19 @@ $(document).ready(function() {
       allOrders[id].quantity += 1;
       $("#cart-item").empty();
       for (let id in allOrders) {
-        $newInput = $(`<input id="item_${id}" class="quantity" type="number" value="${allOrders[id].quantity}" min="1"> ${allOrders[id].name} | Price: ${(Number(allOrders[id].price) * allOrders[id].quantity).toFixed(2)}</br>`);
+        $newInput = $(`<div class="cart${id}"><input id="${id}" class="quantity" type="number" value="${allOrders[id].quantity}" min="1"> ${allOrders[id].name} | Price: <span class="cart-item-price${id}">${(Number(allOrders[id].price) * allOrders[id].quantity).toFixed(2)}</span></br>`);
         $("#cart-item").append($newInput);
-        $newBtn = $(`<button type="button" class="remove-btn">Remove</button></br>`)
+        $newBtn = $(`<div><button type="button" class="cart${id} remove-btn">Remove</button></br></div>`)
         $("#cart-item").append($newBtn);
         $($newBtn).on("click", function(evt) {
-          // evt.preventDefault();
-          console.log(">>>>", evt.target)
+          delete allOrders[id];
+          $(`.cart${id}`).empty();
         })
-        $($newInput).on("change", (evt) => {
-          // console.log($(this).val());
-          console.log(evt);
+
+        $($newInput).bind("mouseup", (evt) => {
+          console.log(evt.target);
           console.log(allOrders);
-          allOrders[id].quantity = parseInt(evt.target.value)
+          console.log(allOrders[id].quantity = parseInt(evt.target.value))
         })
       }
 
