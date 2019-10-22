@@ -34,10 +34,8 @@ $(document).ready(function() {
           $(`.cart${id}`).empty();
         })
 
-        $($newInput).bind("mouseup", (evt) => {
-          console.log(evt.target);
-          console.log(allOrders);
-          console.log(allOrders[id].quantity = parseInt(evt.target.value))
+        $($newInput).bind("input", (evt) => {
+          evt.target.parentNode.children[1].innerHTML = evt.target.value * allOrders[id].price;
         })
       }
 
