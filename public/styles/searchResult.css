@@ -24,9 +24,10 @@
 .container main {
   grid-auto-rows: auto;
   height: 100vh;
-  padding: 90px 1rem 1rem 1rem;
+  padding: 90px 0 1rem 1rem;
   font-family: 'Open Sans', sans-serif;
   overflow: scroll;
+
 }
 
 .container map {
