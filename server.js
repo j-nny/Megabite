@@ -45,7 +45,7 @@ const orderHistory = require("./server/userRoutes/orderHistory");
 const menu = require("./server/userRoutes/menu");
 const browse = require("./server/userRoutes/browse");
 const ownerlogin = require("./server/ownerRoutes/ownerLogin");
-
+// const orders = require("./server/userRoutes/orders");
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 
@@ -56,6 +56,7 @@ app.use("/history", orderHistory);
 app.use("/menu", menu);
 app.use("/browse", browse);
 app.use("/ownerLogin", ownerlogin);
+// app.use("/orders", orders);
 
 // Note: mount other resources here, using the same pattern above
 

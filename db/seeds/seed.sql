@@ -20,13 +20,13 @@ INSERT INTO menus (name, restaurant_id) VALUES
 ('Pho Mekong Main', 3);
 
 -- orders seeds
-INSERT INTO orders(quantity, time_entered, time_promised, customer_id, restaurant_id, active) VALUES
-(1, '2019-10-20 22:30:33.800', '2019-10-20 22:45:33.800', 1, 1, false),
-(1, '2019-10-20 22:40:33.800', '2019-10-20 22:55:34.400', 3, 2, false);
+INSERT INTO orders(time_entered, time_promised, customer_id, restaurant_id, active) VALUES
+('2019-10-20 22:30:33.800', '2019-10-20 22:45:33.800', 1, 1, false),
+('2019-10-20 22:40:33.800', '2019-10-20 22:55:34.400', 3, 2, false);
 
 -- items seeds
 INSERT INTO items (course, name, description, price, size, menu_id, active) VALUES
-('Main', 'Krusty Burger', 'A delicious and nutritious Krusty Burger', 20, null, 1, true),
+('Main', 'Krusty Burger', 'A delicious and nutritious Krusty Burger', 2000, null, 1, true),
 ('Main', 'Curry', 'Exquisite dish using a dozen or so spices and simmered for a day and a night.', 500, null, 2, true),
 ('Appetizer', 'Crispy Spring Rolls', 'Two of the best spring rolls', 400, null, 3, true),
 ('Appetizer', 'Shrimp Chips', 'Puffed chips, shrimp flavour', 200, null, 3, true),

@@ -54,3 +54,12 @@ const getMenu = function(id) {
   WHERE restaurant_id = $1;`, [id])
 }
 exports.getMenu = getMenu;
+
+// const getOrders = function(id){
+//   return db.query(`SELECT items.name as item_name, restaurants.name as restaurant_name, items.description as description, items.price as price FROM items
+//   JOIN menus ON menus.id = menu_id
+//   JOIN restaurants ON restaurant_id = restaurants.id
+//   WHERE restaurant_id = $1;`, [id]).then(res => {
+//     return res.json(res.rows)});
+// }
+// exports.getOrders = getOrders;
