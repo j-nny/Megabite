@@ -106,6 +106,15 @@
 	transition: transform 70ms ease-in;
 }
 
+.remove-btn{
+  text-transform: uppercase;
+  color: black;
+  border: none;
+  background-color: transparent;
+  text-decoration-line: underline;
+	font-size: 12px;
+}
+
 .menu-container > * {
   padding: 0.1rem;
   background-color: rgb(240, 240, 240);

@@ -31,27 +31,18 @@
           </div>
         </div>
         <% for (let item of data) { %>
-          <%= item.id %>
-        <div class="item" id="<%=item.id%>">
-            <h2 class="reset" id="item-name"><%= item.item_name %></h2>
-            <p class="item-desc"><%=item.description%></p>
-            $<span><%= item.price/100 %></span>
+        <div class="item" data-id="<%=item.id%>">
+          <h2 class="reset" id="item-name"><%= item.item_name %></h2>
+          <p class="item-desc"><%=item.description%></p>
+          $<span><%= item.price/100 %></span>
         </div>
         <% } %>
-        <div class="item">
-          <h2 class="reset"> Xiao Long Bao</h2>
-          <p class="item-desc">Nothing fancy.</p>
-        </div>
       </div>
       <div id="cart" class="cart-effects">
         <h2 class="reset">Cart</h2>
         </br>
         <form id="cart-items">
           <div id="cart-item">
-            <!-- <input class="quantity" type="number" value="1" min="0"> Cha Siu Bao | Price:</br>
-            <input class="quantity" type="number" value="1" min="0"> Cha Siu Bao | Price:</br>
-            <input class="quantity" type="number" value="1" min="0"> Cha Siu Bao | Price:</br>
-            <input class="quantity" type="number" value="1" min="0"> Cha Siu Bao | Price:</br> -->
           </div>
         </br>
             Total:
