@@ -64,3 +64,19 @@ exports.getMenu = getMenu;
 // }
 // exports.getOrders = getOrders;
 
+// const addOrder = function(db, obj) {
+//   let currentTime = new Date().toLocaleString();
+
+//   return db
+//     .query(
+//       `INSERT INTO orders ()
+//         VALUES ($1,$2,$3,$4,$5,$6) RETURNING *;`,
+//       []
+//     )
+//     .then(res => {
+//       addUsersOrderStatuses(res.rows[0]);
+//       return res.rows;
+//     });
+// };
+// exports.addOrder = addOrder;
+
