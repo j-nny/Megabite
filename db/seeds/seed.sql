@@ -43,7 +43,7 @@ INSERT INTO items (course, name, description, price, size, menu_id, active) VALU
 ('Main', 'Bun bo Hue', 'Spicy Hue Style Vermicelli Beef Soup', 1045, null, 3, true),
 ('Main', 'Pho tai', 'Rice noodle soup with rare beef', 1095, null, 3, true),
 ('Main', 'Pho dac biet', 'Rice noodle soup with assorted meat, tripe, tendon', 1095, null, 3, true),
-('Main', 'Pho Special', 'Rice noodle soup, house special!', 1095, null, 3, true),
+('Main', 'Pho Mekong', 'Rice noodle soup, house special!', 1095, null, 3, true),
 ('Main', 'Cha Siu Bao', 'Pork buns! Just like tim ho wan', 599, null, 4, true),
 ('Main', 'Xiao Long Bao', 'Soup filled steamed buns, served with straw', 699, null, 4, true),
 ('Main', 'Pineapple Bun', 'Bo lo bao, cookie-like crust served with a slice of cold butter', 799, null, 4, true);
