@@ -4,6 +4,7 @@ const db = require("../database");
 
 router.get('/', (req, res) => {
   res.render("ownerOrder");
+
 });
 
 module.exports = router;

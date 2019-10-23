@@ -41,7 +41,7 @@
       <div id="cart" class="cart-effects">
         <h2 class="reset">Cart</h2>
         </br>
-        <form method="POST" action="/checkout" id="cart-items">
+        <form method="POST" action="/history" id="cart-items">
           <div id="cart-item">
           </div>
         </br>
@@ -50,8 +50,29 @@
             </div>
         </br>
         </br>
-            <button class="submit-btn">Submit</button>
+        <script
+          src="https://checkout.stripe.com/checkout.js" class="stripe-button submit-btn"
+          data-key="pub_key"
+          data-amount="0"
+          data-name="Stripe.com"
+          data-description="Example charge"
+          data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+          data-locale="auto"
+          data-zip-code="true">
+        </script>
         </form>
+        <form action="/history" method="POST">
+            <script
+              src="https://checkout.stripe.com/checkout.js" class="stripe-button submit-btn"
+              data-key="pub_key"
+              data-amount="0"
+              data-name="Stripe.com"
+              data-description="Example charge"
+              data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+              data-locale="auto"
+              data-zip-code="true">
+            </script>
+          </form>
       </div>
     </div>
   </div>

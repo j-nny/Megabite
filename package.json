@@ -24,6 +24,7 @@
     "path": "^0.12.7",
     "pg": "^6.4.2",
     "pg-native": "^3.0.0",
+    "stripe": "^7.10.0",
     "twilio": "^3.36.0"
   },
   "devDependencies": {

@@ -96,3 +96,4 @@ function calculateCartTotal(cart) {
 function updateCartTotalOnPage(newTotal) {
   $('.cart-total').text(newTotal.toFixed(2));
 }
+
