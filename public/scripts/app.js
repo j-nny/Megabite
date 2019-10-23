@@ -15,20 +15,33 @@
 
 //cart quantity goes to 0, removes from cart
 $(document).ready(function() {
+  // prevent user to refresh page on enter
+  $(window).keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
+
   let allOrders = {};
+  let sum = 0;
+
   $(".item").click( function(evt) {
     // let id = evt.target.parentNode.id;
+    let summm = 0;
     let id = $(this).data('id');
-    console.log("clicked on id: ", id);
     // The item was already clicked on before
     if (allOrders[id]) {
       allOrders[id].quantity += 1;
+      refreshCartTotal(allOrders)
+
       $("#cart-item").empty();
       for (let id in allOrders) {
         $newInput = $(`<div class="cart${id}"><input id="${id}" class="quantity" type="number" value="${allOrders[id].quantity}" min="1"> ${allOrders[id].name} | Price: <span class="cart-item-price${id}">${(Number(allOrders[id].price) * allOrders[id].quantity).toFixed(2)}</span></br>`);
         $("#cart-item").append($newInput);
         $newBtn = $(`<div><button type="button" class="cart${id} remove-btn">Remove</button></br></div>`)
         $("#cart-item").append($newBtn);
+        // sum += allOrders[id].quantity * allOrders[id].price;
         $($newBtn).on("click", function(evt) {
           delete allOrders[id];
           $(`.cart${id}`).empty();
@@ -36,19 +49,26 @@ $(document).ready(function() {
 
         $($newInput).bind("input", (evt) => {
           evt.target.parentNode.children[1].innerHTML = (evt.target.value * allOrders[id].price).toFixed(2);
+          allOrders[id].quantity = evt.target.value;
+          refreshCartTotal(allOrders)
+          // sum += allOrders[id].quantity * allOrders[id].price;
+          // console.log(evt.target.value)
+          // console.log(allOrders)
+          // console.log($('.cart-total').text(summm.toFixed(2)));
         })
       }
 
     } else {
       // The item has never been clicked on yet
       $("#cart-item").empty();
-      allOrders[id] = { quantity: 1, price: $(this).children('span').text(), name: $(this).children('#item-name').text() }
-      console.log(allOrders)
+      allOrders[id] = { quantity: 1, price: Number($(this).children('span').text()), name: $(this).children('#item-name').text() }
       for (let id in allOrders) {
+
         $newInput = $(`<div class="cart${id}"><input id="${id}" class="quantity" type="number" value="${allOrders[id].quantity}" min="1"> ${allOrders[id].name} | Price: <span class="cart-item-price${id}">${(Number(allOrders[id].price) * allOrders[id].quantity).toFixed(2)}</span></br>`);
         $("#cart-item").append($newInput);
         $newBtn = $(`<div><button type="button" class="cart${id} remove-btn">Remove</button></br></div>`)
         $("#cart-item").append($newBtn);
+        // sum += allOrders[id].quantity * allOrders[id].price;
         $($newBtn).on("click", function(evt) {
           delete allOrders[id];
           $(`.cart${id}`).empty();
@@ -56,12 +76,43 @@ $(document).ready(function() {
 
         $($newInput).bind("input", (evt) => {
           evt.target.parentNode.children[1].innerHTML = (evt.target.value * allOrders[id].price).toFixed(2);
+          allOrders[id].quantity = evt.target.value;
+          refreshCartTotal(allOrders)
+          // const newCartTotal = calculateCartTotal(allOrders)
+          // updateCartTotalOnPage(newCartTotal)
+          // sum += allOrders[id].price;
+
+          // console.log(evt.target.value)
+          // console.log(allOrders)
+          // console.log($('.cart-total').text(summm.toFixed(2)));
+          // console.log(evt.target.parentNode.parentNode.parentNode.children[2].innerHTML = "a")
+          // console.log(summm)
+
         })
       }
     }
-
-    console.log(allOrders);
+    console.log(allOrders)
+    for (let id in allOrders) {
+      summm+= (allOrders[id].quantity * allOrders[id].price);
+    }
+    console.log(summm);
+    $('.cart-total').text(summm.toFixed(2));
   });
 
 
 })
+
+
+function refreshCartTotal(cart) {
+  const total = calculateCartTotal(cart)
+  updateCartTotalOnPage(total)
+}
+
+// Pass in Current Cart, and function will return sum
+function calculateCartTotal(cart) {
+  return Object.keys(cart).reduce((acc, curr) => acc + (cart[curr].quantity * cart[curr].price), 0)
+}
+
+function updateCartTotalOnPage(newTotal) {
+  $('.cart-total').text(newTotal.toFixed(2));
+}
