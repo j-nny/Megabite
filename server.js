@@ -17,8 +17,9 @@ const db         = require('./server/database')
 // 'dev' = Concise output colored by response status for development use.
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
 app.use(morgan('dev'));
-app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.set("view engine", "ejs");
 app.use(cookieSession({
   name: 'session',
   keys: ["key"],
@@ -73,6 +74,7 @@ app.get("/", (req, res) => {
 });
 app.get("/restaurants/:id/menu", (req, res) => {
   console.log(">>>>>>", req.params.id)
+  console.log(req.body)
   db.getMenu(req.params.id)
   .then(res => {
     if (res) {
