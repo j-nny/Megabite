@@ -48,7 +48,7 @@ const addUser =  function(user) {
 exports.addUser = addUser;
 
 const getMenu = function(id) {
-  return db.query(`SELECT items.id, items.name as item_name, restaurants.name as restaurant_name, items.description as description, items.price as price FROM items
+  return db.query(`SELECT items.id, items.name as item_name, restaurants.name as restaurant_name, items.description as description, items.price as price, restaurant_id FROM items
   JOIN menus ON menus.id = menu_id
   JOIN restaurants ON restaurant_id = restaurants.id
   WHERE restaurant_id = $1;`, [id])
