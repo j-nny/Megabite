@@ -78,7 +78,7 @@ $(document).ready(function () {
       url: "/checkout",
       type: "POST",
       data: allOrders
-    }).then(function () {window.location.replace("/checkout")})
+    }).then(function () {window.location.replace("/history")})
   });
 })
 

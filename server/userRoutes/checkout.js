@@ -28,7 +28,7 @@ router.post('/', (req, res) => {
         }
       }
     });
-  res.redirect("/login");
+  res.redirect("/history");
 
 });
 

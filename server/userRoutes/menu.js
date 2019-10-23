@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require("../database");
-const stripe = require('stripe')('pub_key');
+const stripe = require('stripe')("pk_test_uo8K69V2jUSIOYo0kLyqk4tk005kzM0VPH");
 
 router.get('/', (req, res) => {
   db.getMenu()
@@ -20,10 +20,10 @@ router.get('/', (req, res) => {
 
   (async () => {
     const charge = await stripe.charges.create({
-      amount: 999,
-      currency: 'usd',
+      amount: 0,
+      currency: 'cad',
       source: 'tok_visa',
-      receipt_email: 'jenny.rosen@example.com',
+      receipt_email: 'j.nguy809@gmail.com',
     });
   })();
 });

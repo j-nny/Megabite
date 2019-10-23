@@ -11,6 +11,7 @@
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
+  <script type='text/javascript' src='/scripts/config.js'></script>f
 
 
   <title>Menu</title>
@@ -41,7 +42,7 @@
       <div id="cart" class="cart-effects">
         <h2 class="reset">Cart</h2>
         </br>
-        <form method="POST" action="/history" id="cart-items">
+        <form method="POST" action="/checkout" id="cart-items">
           <div id="cart-item">
           </div>
         </br>
@@ -52,7 +53,7 @@
         </br>
         <script
           src="https://checkout.stripe.com/checkout.js" class="stripe-button submit-btn"
-          data-key="pub_key"
+          data-key="pk_test_uo8K69V2jUSIOYo0kLyqk4tk005kzM0VPH"
           data-amount="0"
           data-name="Stripe.com"
           data-description="Example charge"
@@ -61,18 +62,6 @@
           data-zip-code="true">
         </script>
         </form>
-        <form action="/history" method="POST">
-            <script
-              src="https://checkout.stripe.com/checkout.js" class="stripe-button submit-btn"
-              data-key="pub_key"
-              data-amount="0"
-              data-name="Stripe.com"
-              data-description="Example charge"
-              data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-              data-locale="auto"
-              data-zip-code="true">
-            </script>
-          </form>
       </div>
     </div>
   </div>
