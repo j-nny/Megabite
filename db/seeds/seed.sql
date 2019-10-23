@@ -14,7 +14,7 @@ INSERT INTO restaurants (id, owner_id, name, category, address, city, province, 
 (1, 2, 'Breaking Bread', 'Brunch', '96 Temcumseth St', 'Toronto', 'Ontario', 'M6J2H1', true),
 (2, 4, 'Pasta La Vista', 'Italian', '540 King St W', 'Toronto', 'Ontario', 'M5V1M3', true),
 (3, 5, 'Viet Noms', 'Pho', '50 Portland St', 'Toronto', 'Ontario', 'M5V2M7', true),
-(4, 6, 'Lil BaoBao', 'Chinese', '82 Bathurst', 'Toronto', 'Ontario', 'M5V2P3', true);
+(4, 6, 'BaoBao Baby', 'Chinese', '82 Bathurst', 'Toronto', 'Ontario', 'M5V2P3', true);
 
 -- menus seeds
 INSERT INTO menus (name, restaurant_id) VALUES
