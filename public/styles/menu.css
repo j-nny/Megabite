@@ -8,15 +8,15 @@
 .resto-name {
   background-color: white;
   border-radius:8px;
-  margin: 10px 10px 0px 10px;
-  padding: 10px;
+  margin: 10px 20px 0px 20px;
+  padding: 10px 30px 10px 30px;
 }
 
 .prev-orders {
   margin-bottom: 10px;
   border-radius:8px;
   background-color: white;
-  padding: 10px;
+  padding: 10px 30px 10px 30px;;
 }
 
 .prev-order {
@@ -33,7 +33,7 @@
 .items {
   background-color: rgb(240, 240, 240);
   border-radius:8px;
-  margin: 10px 0px 10px 10px;
+  margin: 10px 0px 10px 20px;
   overflow: scroll;
 }
 
@@ -41,7 +41,7 @@
   margin-bottom: 5px;
   border-radius:8px;
   background-color: white;
-  padding: 10px;
+  padding: 10px 30px 10px 30px;
 }
 
 .item-desc {
@@ -72,7 +72,8 @@
 	overflow: hidden;
 	width: 768px;
 	max-width: 100%;
-	min-height: 480px;
+  min-height: 480px;
+  outline: none;
 }
 
 .quantity {
