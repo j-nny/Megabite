@@ -48,13 +48,24 @@ const addUser =  function(user) {
 exports.addUser = addUser;
 
 const getMenu = function(id) {
-  return db.query(`SELECT items.id, items.name as item_name, restaurants.name as restaurant_name, items.description as description, items.price as price, restaurant_id FROM items
+  return db.query(`SELECT items.id, items.name as item_name, restaurants.name as restaurant_name, items.description as description, items.price as price, restaurants.id as restaurant_id FROM items
   JOIN menus ON menus.id = menu_id
   JOIN restaurants ON restaurant_id = restaurants.id
   WHERE restaurant_id = $1;`, [id])
 }
 exports.getMenu = getMenu;
 
+const addOrder = function(customer_id, restaurant_id){
+  return db.query(`INSERT INTO orders (customer_id, restaurant_id, active) VALUES
+  ($1, $2, false) RETURNING orders.id;`, [customer_id, restaurant_id])
+}
+exports.addOrder = addOrder;
+
+const addItems = function(order_id, item_id, quantity){
+  return db.query(`INSERT INTO order_items (order_id, item_id, quantity) VALUES
+  ($1, $2, $3);`, [order_id, item_id, quantity]);
+}
+exports.addItems = addItems;
 // const getOrders = function(id){
 //   return db.query(`SELECT items.name as item_name, restaurants.name as restaurant_name, items.description as description, items.price as price FROM items
 //   JOIN menus ON menus.id = menu_id
