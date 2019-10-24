@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="/styles/ownerOrder.css" type="text/css" />
-  <link rel="stylesheet" href="/styles/login.css" type="text/css" />
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/login.js"> </script>
@@ -17,11 +16,26 @@
 </head>
 <body>
   <header><% include ./partials/_ownerHeader %></header>
-  <ul id="container">
-    <li class="order">
-
-    </li>
-  </ul>
+    <div class="title">
+      <h2>Active Orders</h2>
+    </div>
+    <div class="order">
+    <div class="customer">
+      <h2>User Name</h2>
+      <p>Ordered at:</br>Oct 10, 2019 10:30AM</p>
+    </div>
+    <div class="items">
+      <p>1 x Pork Dumpling</br>1 x Pork and Shrimp Dumpling</br></br>Total: $10.00</p>
+    </div>
+    <form method="POST" action="/ownerOrder">
+      <div class="status">
+        <input name="timeSet" type="number" step="5" min=5 value=15>
+      </div>
+      <div>
+        <button>Accept</button>
+      </div>
+    </form>
+  </div>
 
 </body>
 </html>
