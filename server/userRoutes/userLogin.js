@@ -17,11 +17,12 @@ router.post('/', (req, res) => {
     .then(user => {
       console.log(user)
       if (!user) {
-        res.send({error: "error"});
+        res.send("this email or passowrd is incorrect!");
         return;
+      } else {
+        req.session.user_id = user.id
+        res.redirect('/browse')
       }
-      req.session.user_id = user.id
-      res.redirect('/browse')
     })
     .catch(e => {
       res.render('login', { errors: ['Invalid email or password'] })
