@@ -35,6 +35,8 @@ router.get('/', (req, res) => {
 
         return acc
       }, {});
+      let properties = Object.keys(orderObject).reverse();
+      console.log("This is the object keys", properties)
       // orderObject = Object.entries(orderObject).reverse();
       console.log("This is the order object", orderObject);
       // console.log("This is the order object reverse", Object.entries(orderObject).reverse());
@@ -49,9 +51,16 @@ router.get('/', (req, res) => {
       // console.log(duplicates.includes(data[1].order_id));
       // console.log(orderObject["3"][0].order_id);
       // console.log(orderObject["1"].length)
+      properties.forEach(function (prop) {
+        for (let i = 0; i < orderObject[prop].length; i++){
+        console.log(`PropertyName: ${prop}, its Value: ${orderObject[prop][i].order_id}`)
+        }
+      });
+
       let templateVar = {
         user: req.session.user_id,
-        orderObject
+        orderObject,
+        properties
       }
       res.render("history", templateVar);
     })
