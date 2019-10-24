@@ -17,6 +17,7 @@ CREATE TABLE users (
 
 CREATE TABLE restaurants (
 id SERIAL PRIMARY KEY NOT NULL,
+image TEXT NOT NULL DEFAULT 'https://image.shutterstock.com/image-illustration/cute-cartoon-dim-sum-traditional-260nw-1063999892.jpg',
 owner_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
 name VARCHAR(255) NOT NULL,
 category VARCHAR(255) NOT NULL,

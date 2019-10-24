@@ -116,7 +116,12 @@
 	font-size: 12px;
 }
 
+.hidden {
+  border:none;
+}
+
 .menu-container > * {
   padding: 0.1rem;
   background-color: rgb(240, 240, 240);
 }
+
