@@ -2,16 +2,16 @@
 require('dotenv').config();
 
 // Web server config
-const PORT       = process.env.PORT || 8080;
-const ENV        = process.env.ENV || "development";
-const express    = require("express");
+const PORT = process.env.PORT || 8080;
+const ENV = process.env.ENV || "development";
+const express = require("express");
 const bodyParser = require("body-parser");
 const cookieSession = require('cookie-session');
-const sass       = require("node-sass-middleware");
-const app        = express();
-const morgan     = require('morgan');
-const path       = require('path');
-const db         = require('./server/database')
+const sass = require("node-sass-middleware");
+const app = express();
+const morgan = require('morgan');
+const path = require('path');
+const db = require('./server/database')
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
@@ -72,21 +72,33 @@ app.use("/ownerOrder", ownerOrder);
 // Separate them into separate routes files (see above).
 
 app.get("/restaurants/:id/menu", (req, res) => {
-  if (!req.session.user_id) {
-    res.redirect("/login");
-  }
-  db.getMenu(req.params.id)
-  .then(res => {
-    if (res) {
-      return res.rows;
-    } else {
-      return null;
-    }
-  })
-  .then(data => {
-    let templateVar = { user: req.session.user_id, data: data };
-    res.render("menu", templateVar);
-  });
+    db.getMenu(req.params.id)
+    .then(result => Promise.all([result, db.getPreviousOrder(req.session.user_id, result.rows[0].restaurant_id)]))
+    .then (function ([result1, result2]){
+      let orderObject = result2.rows.reduce(function(acc, order){
+        if(acc[order.order_id]){
+          acc = Object.assign(acc, {[order.order_id]: [...acc[order.order_id], order]});
+        }
+        else{
+          acc = Object.assign(acc, {[order.order_id]: [order]});
+        }
+
+        return acc;
+      }, {});
+
+      let getKeys = Object.keys(orderObject).reverse().map(function(x){
+        return parseInt(x, 10);
+      }).sort();
+      getKeys = getKeys[getKeys.length -1];
+      console.log(getKeys);
+      console.log(orderObject[getKeys][0].item_name);
+        let templateVar = {
+          user: req.session.user_id,
+          data: result1.rows,
+          previousOrder: orderObject[getKeys]
+        }
+        res.render("menu", templateVar);
+    });
 });
 
 

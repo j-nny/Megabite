@@ -27,8 +27,10 @@
         <div class="prev-orders">
             <h2 class="reset">Previous Order</h2>
             <div class="prev-order">
-            <p>1 x Pork Dumpling</br>1 x Pork and Shrimp Dumpling</p>
-            <p>Oct 10, 2019 10:30AM</p>
+            <% for (let i = 0; i < previousOrder.length; i++) { %>
+            <p><%= previousOrder[i].quantity %> x <%= previousOrder[i].item_name %></p>
+            <% } %>
+            <p><%= previousOrder[0].time_entered %></p>
           </div>
         </div>
         <% for (let item of data) { %>
