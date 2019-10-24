@@ -4,4 +4,4 @@ JOIN users ON orders.customer_id = users.id
 JOIN restaurants ON restaurants.id = orders.restaurant_id
 WHERE users.first_name = 'Rick'
 GROUP BY orders.id, users.first_name, users.last_name, restaurants.name
-ORDER BY time_promised;
+ORDER BY time_entered DESC;

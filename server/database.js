@@ -20,7 +20,6 @@ const getUserWithEmail = function(email) {
 exports.getUserWithEmail = getUserWithEmail;
 
 const login =  function(email, password) {
-  console.log("PASSWORD IS ", password)
   return getUserWithEmail(email)
   .then(user => {
     if (bcrypt.compareSync(password, user.password)) {
@@ -67,12 +66,17 @@ const addItems = function(order_id, item_id, quantity){
   ($1, $2, $3);`, [order_id, item_id, quantity]);
 }
 exports.addItems = addItems;
-// const getOrders = function(id){
-//   return db.query(`SELECT items.name as item_name, restaurants.name as restaurant_name, items.description as description, items.price as price FROM items
-//   JOIN menus ON menus.id = menu_id
-//   JOIN restaurants ON restaurant_id = restaurants.id
-//   WHERE restaurant_id = $1;`, [id]).then(res => {
-//     return res.json(res.rows)});
-// }
-// exports.getOrders = getOrders;
 
+const getOrderHistory = function(user_id){
+  return db.query(`SELECT orders.time_entered, orders.time_promised, orders.id as order_id, items.id as item_id, items.name as item_name, order_items.quantity as quantity, restaurants.name as restaurant_name, restaurants.address as address, restaurants.category as category, restaurants.active as active
+  FROM orders
+  JOIN users ON orders.customer_id = users.id
+  JOIN restaurants ON restaurants.id = orders.restaurant_id
+  JOIN order_items ON orders.id = order_items.order_id
+  JOIN items ON items.id = order_items.item_id
+  WHERE users.id = $1
+  GROUP BY orders.id, users.first_name, users.last_name, restaurants.name, items.id, order_items.quantity, restaurants.address, restaurants.category, restaurants.active
+  ORDER BY time_entered DESC;
+  `, [user_id]);
+ }
+ exports.getOrderHistory = getOrderHistory;

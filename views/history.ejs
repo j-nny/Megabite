@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/styles/searchResult.css" type="text/css" />
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="/scripts/app.js"></script>
+    <!-- <script type="text/javascript" src="/scripts/historyHandler.js"></script> -->
     <script type='text/javascript' src='/scripts/config.js'></script>
 
     <style>
@@ -26,39 +26,30 @@
     <div class=page-container>
       <header><% include ./partials/_header %></header>
       <div class="container">
-        <main>
+        <main data-orders>
           <div id="browseHistory">
               <a href="/browse" class="tab">Discover</a>
               <a href="/history" class="tab tab_active">History</a>
           </div>
+          <% for (let items in orderObject) { %>
+
           <div class="searchResults">
             <div id="result">
               <div id="result_img">
                 <img class="thumb_resize" src="https://image.shutterstock.com/image-illustration/cute-cartoon-dim-sum-traditional-260nw-1063999892.jpg">
               </div>
               <div id="result_description">
-                <h2>Lil BaoBao</h2>
-                <p>King/Bathurst</br>662 King St W</br>5 minutes away</p>
-                <p>Chinese</br>1 x Pork Dumpling</br>1 x Pork and Shrimp Dumpling</p>
-                <p>Oct 10, 2019 10:30AM</p>
+                <h2><%= orderObject[items][0].restaurant_name %></h2>
+                <p><%= orderObject[items][0].address %></p>
+                <p><%= orderObject[items][0].category %></br>
+                  <% for (let i = 0; i < orderObject[items].length; i++){ %>
+                  <%= orderObject[items][i].quantity %> x <%= orderObject[items][i].item_name%></p>
+                  <% } %>
+                <p><%= orderObject[items][0].time_entered %></p>
               </div>
             </div>
           </div>
-          <!-- For show only, delete later -->
-          <div class="searchResults">
-              <div id="result">
-                <div id="result_img">
-                  <img class="thumb_resize" src="https://image.shutterstock.com/image-illustration/cute-cartoon-dim-sum-traditional-260nw-1063999892.jpg">
-                </div>
-                <div id="result_description">
-                  <h2>Lil BaoBao</h2>
-                  <p>King/Bathurst</br>662 King St W</br>5 minutes away</p>
-                  <p>Chinese</br>1 x Pork Dumpling</br>1 x Pork and Shrimp Dumpling</p>
-                  <p>Oct 10, 2019 10:30AM</p>
-                </div>
-              </div>
-            </div>
-              <!-- End delete -->
+          <% } %>
         </main>
         <map>
           <div id="map"></div>
