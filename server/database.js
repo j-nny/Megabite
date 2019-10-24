@@ -56,8 +56,8 @@ const getMenu = function(id) {
 exports.getMenu = getMenu;
 
 const addOrder = function(customer_id, restaurant_id){
-  return db.query(`INSERT INTO orders (customer_id, restaurant_id, active) VALUES
-  ($1, $2, false) RETURNING orders.id;`, [customer_id, restaurant_id])
+  return db.query(`INSERT INTO orders (customer_id, restaurant_id) VALUES
+  ($1, $2) RETURNING orders.id;`, [customer_id, restaurant_id])
 }
 exports.addOrder = addOrder;
 
@@ -80,3 +80,42 @@ const getOrderHistory = function(user_id){
   `, [user_id]);
  }
  exports.getOrderHistory = getOrderHistory;
+
+ /////// Owner ///////
+ const getOwnerWithEmail = function(email) {
+  const queryString = `SELECT * FROM users WHERE email = $1 AND role = 'owner';`
+  return db.query(queryString,[email])
+  .then(res => {
+    if(res) {
+      return res.rows[0];
+    } else {
+      return null;
+    }
+  }).catch(err => console.error('query error', err.stack));
+}
+exports.getOwnerWithEmail = getOwnerWithEmail;
+
+const ownerLogin =  function(email, password) {
+  return getOwnerWithEmail(email)
+  .then(user => {
+    if (bcrypt.compareSync(password, user.password)) {
+      return user;
+    }
+    console.log('insidegetuserfunc')
+    return null;
+  });
+}
+exports.ownerlogin = ownerLogin;
+
+const getRestaurantOrders = function (owner_id, active) {
+  return db.query (`SELECT orders.time_entered, orders.id as order_id, items.id as item_id, items.name as item_name, order_items.quantity as quantity, users.first_name, users.last_name
+  FROM restaurants
+  JOIN orders ON restaurants.id = orders.restaurant_id
+  JOIN order_items ON orders.id = order_items.order_id
+  JOIN items ON items.id = order_items.item_id
+  JOIN users ON orders.customer_id = users.id
+  WHERE restaurants.owner_id = $1 AND orders.active = $2
+  GROUP BY orders.id, users.first_name, users.last_name, restaurants.name, items.id, order_items.quantity, users.first_name, users.last_name
+  ORDER BY orders.id;`, [owner_id, active]);
+};
+exports.getRestaurantOrders = getRestaurantOrders;
