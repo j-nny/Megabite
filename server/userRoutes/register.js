@@ -3,11 +3,12 @@ const router = express.Router();
 const db = require("../database");
 const bcrypt = require("bcrypt");
 
-router.get('/', (req, res) => {
-  if (req.session.user_id) {
-    res.redirect('/browse');
+router.get("/", (req, res) => {
+  if (!req.session.user_id) {
+    let templateVar = { user: req.session.user_id };
+    res.render("login", templateVar);
   } else {
-    res.render("login");
+    res.redirect("/browse");
   }
 });
 

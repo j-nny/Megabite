@@ -47,7 +47,8 @@
 	border-radius: 20px;
 	border: 1px solid #FFFFFF;
 	background-color: rgb(52, 194, 212);
-	color: #FFFFFF;
+  color: #FFFFFF;
+  text-decoration: none;
 	font-size: 12px;
 	padding: 10px 20px;
 	text-transform: uppercase;

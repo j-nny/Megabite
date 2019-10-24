@@ -1,24 +1,15 @@
 const express = require('express');
 const router = express.Router();
 const db = require("../database");
+const twilio = require('twilio');
+
+const accountSid = process.env.accountSid;
+const authToken = process.env.authToken;
+
 
 router.post('/', (req, res) => {
-  // let orderObject =
-  // { 4: {quantity: 4, },
-  // restaurant_id: 3};
-  // console.log(orderObject[restaurant_id]);
   let order = req.body;
-  let currentTime = new Date().toLocaleString();
-  // console.log("This is the cart", order);
   console.log(">>>>>>>>>>>>>This is the restaurant id", order.restaurant_id);
-  console.log(currentTime);
-  // console.log(order);
-  // for (let items in order){
-  //   console.log(items);
-  //   console.log(order[items]);
-  // }
-  // db.query(`INSERT INTO orders(time_entered, time_promised, customer_id, restaurant_id, active) VALUES
-  // ('2019-10-20 22:30:33.800', '2019-10-20 22:45:33.800', 1, 1, false); RETURNING orders.id`)
   db.addOrder(req.session.user_id, order.restaurant_id)
     .then(function (res) {
       // console.log("THIS IS THE ORDER ID", res.rows[0].id);
@@ -27,9 +18,18 @@ router.post('/', (req, res) => {
           db.addItems(res.rows[0].id, items, order[items].quantity);
         }
       }
-    });
-  res.redirect("/login");
+  /////////////// Twilio //////////////////
+      const client = twilio(accountSid, authToken);
 
+      client.messages
+        .create({
+          body: 'Your order will be ready in 15 minutes!',
+          from: '+16476969370',
+          to: '+16479902593'
+          })
+        .then(message => console.log(message.sid));
+    });
+  res.redirect("/browse");
 });
 
 module.exports = router

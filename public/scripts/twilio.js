@@ -1,13 +1,14 @@
 const twilio = require('twilio');
 
-const accountSid = 'ACed734727cb1b9cb11c97bb2938667823';
-const authToken = '9f6fbdbce6c139d0d193dd77548ac590';
+const accountSid = 'ACd3a128e7be76db91459eabd05f4f7c23';
+const authToken = '03dd70c59fb29f0770fa4c897873fc1e';
 const client = twilio(accountSid, authToken);
 
 client.messages
   .create({
-     body: 'This is the ship that made the Kessel Run in fourteen parsecs?',
-     from: '+16473701007',
+     body: 'Testing from node js',
+     from: '+16476969370',
      to: '+16479902593'
    })
   .then(message => console.log(message.sid));
+

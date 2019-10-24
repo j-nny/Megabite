@@ -12,8 +12,8 @@ router.get('/', (req, res) => {
     };
   })
   .then(data => {
-    console.log({data});
-    res.render("menu", {data});
+    let templateVar = { user: req.session.user_id, data: data }
+    res.render("menu", templateVar);
   })
   .catch(err => console.error(err));
 });

@@ -20,6 +20,7 @@ const getUserWithEmail = function(email) {
 exports.getUserWithEmail = getUserWithEmail;
 
 const login =  function(email, password) {
+  console.log("PASSWORD IS ", password)
   return getUserWithEmail(email)
   .then(user => {
     if (bcrypt.compareSync(password, user.password)) {

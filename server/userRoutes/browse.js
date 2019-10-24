@@ -14,8 +14,9 @@ router.get('/', (req, res) => {
       return null;
     }
   })
-  .then(data => { console.log(data);
-  res.render("user_search", {data})})
+  .then(data => {
+    let templateVar = {user: req.session.user_id, data: data }
+  res.render("user_search", templateVar)})
   .catch(err => console.error('query error', err.stack));
   // console.log(resultArray);
   // res.render("user_search");
