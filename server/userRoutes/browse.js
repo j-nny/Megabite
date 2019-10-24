@@ -3,10 +3,11 @@ const router = express.Router();
 const db = require("../database");
 
 router.get('/', (req, res) => {
-  // console.log("browse");
-  let results = [];
+  if (!req.session.user_id) {
+    res.redirect("/login");
+  }
   db.populateSideBar()
-   .then(res => {
+  .then(res => {
     if (res){
       return res.rows;
     }

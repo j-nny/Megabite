@@ -3,6 +3,9 @@ const router = express.Router();
 const db = require("../database");
 
 router.get('/', (req, res) => {
+  if (!req.session.user_id) {
+    res.redirect("/login");
+  }
   db.getMenu()
   .then(res => {
     if (res) {

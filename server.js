@@ -70,11 +70,11 @@ app.use("/ownerOrder", ownerOrder);
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
-app.get("/", (req, res) => {
-  res.render("index");
-});
+
 app.get("/restaurants/:id/menu", (req, res) => {
-  console.log(">>>>>>", req.params.id)
+  if (!req.session.user_id) {
+    res.redirect("/login");
+  }
   db.getMenu(req.params.id)
   .then(res => {
     if (res) {
