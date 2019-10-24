@@ -36,15 +36,16 @@
           <div class="searchResults">
             <div id="result">
               <div id="result_img">
-                <img class="thumb_resize" src="https://image.shutterstock.com/image-illustration/cute-cartoon-dim-sum-traditional-260nw-1063999892.jpg">
+                <img class="thumb_resize" src="<%= orderObject[prop][0].image %>">
               </div>
               <div id="result_description">
-                <h2><%= orderObject[prop][0].restaurant_name %></h2>
-                <p><%= orderObject[prop][0].address %></p>
-                <p><%= orderObject[prop][0].category %></br>
+                <h2 class="reset"><%= orderObject[prop][0].restaurant_name %></h2>
+                <p><%= orderObject[prop][0].address %></br>
+                <%= orderObject[prop][0].category %></p>
                   <% for (let i = 0; i < orderObject[prop].length; i++){ %>
-                  <%= orderObject[prop][i].quantity %> x <%= orderObject[prop][i].item_name%></p>
+                  <%= orderObject[prop][i].quantity %> x <%= orderObject[prop][i].item_name%></br>
                   <% } %>
+                  </p>
                 <p><%= orderObject[prop][0].time_entered %></p>
               </div>
             </div>

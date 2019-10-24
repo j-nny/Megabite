@@ -29,10 +29,9 @@ router.get('/', (req, res) => {
           acc = Object.assign(acc, {[order.order_id]: [...acc[order.order_id], order]});
           // console.log("This is the order with an id of 3 ", acc[order.order_id]);
         }
-        else{
+        else {
           acc = Object.assign(acc, {[order.order_id]: [order]});
         }
-
         return acc
       }, {});
       let properties = Object.keys(orderObject).reverse();
