@@ -45,6 +45,7 @@ const orderHistory = require("./server/userRoutes/orderHistory");
 const menu = require("./server/userRoutes/menu");
 const browse = require("./server/userRoutes/browse");
 const checkout = require("./server/userRoutes/checkout");
+const logout = require("./server/userRoutes/logout");
 const ownerlogin = require("./server/ownerRoutes/ownerLogin");
 const ownerOrder = require("./server/ownerRoutes/ownerOrder");
 // const orders = require("./server/userRoutes/orders");
@@ -58,6 +59,7 @@ app.use("/history", orderHistory);
 app.use("/menu", menu);
 app.use("/browse", browse);
 app.use("/checkout", checkout);
+app.use("/logout", logout);
 app.use("/ownerLogin", ownerlogin);
 app.use("/ownerOrder", ownerOrder);
 // app.use("/orders", orders);
@@ -68,11 +70,11 @@ app.use("/ownerOrder", ownerOrder);
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
-app.get("/", (req, res) => {
-  res.render("index");
-});
+
 app.get("/restaurants/:id/menu", (req, res) => {
-  console.log(">>>>>>", req.params.id)
+  if (!req.session.user_id) {
+    res.redirect("/login");
+  }
   db.getMenu(req.params.id)
   .then(res => {
     if (res) {
@@ -81,14 +83,10 @@ app.get("/restaurants/:id/menu", (req, res) => {
       return null;
     }
   })
-  .then(data => {console.log(data); res.render("menu", {data});});
-  // SELECT * FROM menu_items WHERE menu_items.restaurants.id = req.params.id
-  // put the result into to template vars
-  // res.render( menu_items)
-  // in there loop through items in template vars, and print eaach item on the screen (USE EJS templating <%= %>)
-  // res.json([
-  //   {item_name: 'Pork Chop'}
-  // ])
+  .then(data => {
+    let templateVar = { user: req.session.user_id, data: data };
+    res.render("menu", templateVar);
+  });
 });
 
 

@@ -6,7 +6,8 @@ router.get("/", (req, res) => {
   if (req.session.user_id) {
     res.redirect("/browse");
   } else {
-    res.render("login");
+    let templateVar = { user: req.session.user_id };
+    res.render("login", templateVar);
   }
 });
 
@@ -23,7 +24,6 @@ router.post('/', (req, res) => {
       res.redirect('/browse')
     })
     .catch(e => {
-      // res.send(e);
       res.render('login', { errors: ['Invalid email or password'] })
     });
 });

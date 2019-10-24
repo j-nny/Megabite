@@ -82,7 +82,6 @@ $(document).ready(function () {
   });
 })
 
-
 function refreshCartTotal(cart) {
   const total = calculateCartTotal(cart)
   updateCartTotalOnPage(total)

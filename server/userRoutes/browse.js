@@ -3,10 +3,11 @@ const router = express.Router();
 const db = require("../database");
 
 router.get('/', (req, res) => {
-  // console.log("browse");
-  let results = [];
+  if (!req.session.user_id) {
+    res.redirect("/login");
+  }
   db.populateSideBar()
-   .then(res => {
+  .then(res => {
     if (res){
       return res.rows;
     }
@@ -14,8 +15,9 @@ router.get('/', (req, res) => {
       return null;
     }
   })
-  .then(data => { console.log(data);
-  res.render("user_search", {data})})
+  .then(data => {
+    let templateVar = {user: req.session.user_id, data: data }
+  res.render("user_search", templateVar)})
   .catch(err => console.error('query error', err.stack));
   // console.log(resultArray);
   // res.render("user_search");

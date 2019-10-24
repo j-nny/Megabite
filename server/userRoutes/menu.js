@@ -4,6 +4,9 @@ const db = require("../database");
 const stripe = require('stripe')("pk_test_uo8K69V2jUSIOYo0kLyqk4tk005kzM0VPH");
 
 router.get('/', (req, res) => {
+  if (!req.session.user_id) {
+    res.redirect("/login");
+  }
   db.getMenu()
   .then(res => {
     if (res) {
@@ -13,8 +16,8 @@ router.get('/', (req, res) => {
     };
   })
   .then(data => {
-    console.log({data});
-    res.render("menu", {data});
+    let templateVar = { user: req.session.user_id, data: data }
+    res.render("menu", templateVar);
   })
   .catch(err => console.error(err));
 
