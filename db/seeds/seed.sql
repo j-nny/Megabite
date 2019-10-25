@@ -25,8 +25,8 @@ INSERT INTO menus (name, restaurant_id) VALUES
 
 -- orders seeds
 INSERT INTO orders(time_entered, time_promised, customer_id, restaurant_id, active) VALUES
-('2019-10-20 22:30:33.800', '2019-10-20 22:45:33.800', 1, 1, false),
-('2019-10-20 22:40:33.800', '2019-10-20 22:55:34.400', 3, 2, false);
+('2019-10-20 22:30:33.800', '2019-10-20 22:45:33.800', 1, 1, true),
+('2019-10-20 22:40:33.800', '2019-10-20 22:55:34.400', 3, 2, true);
 
 -- items seeds
 INSERT INTO items (course, name, description, price, size, menu_id, active) VALUES
