@@ -22,7 +22,7 @@ $(document).ready(function () {
 
       $("#cart-item").empty();
       for (let id in allOrders) {
-        $newInput = $(`<div class="cart${id}"><input id="${id}" class="cart${id} quantity" type="number" value="${allOrders[id].quantity}" min="1"> ${allOrders[id].name} | Price: <span class="cart-item-price${id}">${(Number(allOrders[id].price) * allOrders[id].quantity).toFixed(2)}</span></br></div>`);
+        $newInput = $(`<div class="cart${id}"><input id="${id}" class="cart${id} quantity" type="number" value="${allOrders[id].quantity}" min="1"> ${allOrders[id].name} | Price: $<span class="cart-item-price${id}">${(Number(allOrders[id].price) * allOrders[id].quantity).toFixed(2)}</span></br></div>`);
         $("#cart-item").append($newInput);
         $newBtn = $(`<div><button type="button" class="cart${id} remove-btn">Remove</button></br></div>`)
         $("#cart-item").append($newBtn);
@@ -34,7 +34,7 @@ $(document).ready(function () {
 
         $($newInput).bind("input", (evt) => {
           evt.target.parentNode.children[1].innerHTML = (evt.target.value * allOrders[id].price).toFixed(2);
-          allOrders[id].quantity = evt.target.value;
+          allOrders[id].quantity = Number(evt.target.value);
           refreshCartTotal(allOrders)
         })
       }
@@ -58,8 +58,9 @@ $(document).ready(function () {
 
         $($newInput).bind("input", (evt) => {
           evt.target.parentNode.children[1].innerHTML = (evt.target.value * allOrders[id].price).toFixed(2);
-          allOrders[id].quantity = evt.target.value;
+          allOrders[id].quantity = Number(evt.target.value);
           refreshCartTotal(allOrders)
+          console.log(typeof evt.target.value)
         })
       }
     }
@@ -93,6 +94,6 @@ function calculateCartTotal(cart) {
 }
 
 function updateCartTotalOnPage(newTotal) {
-  $('.cart-total').text(newTotal.toFixed(2));
+  $('.cart-total').text(`Total: $${newTotal.toFixed(2)}`);
 }
 
