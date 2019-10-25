@@ -1,0 +1,64 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/menu.css" type="text/css" />
+  <link rel="shortcut icon" type="image/png" href="/images/fav.png"/>
+
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
+  <script type='text/javascript' src='/scripts/config.js'></script>f
+
+
+  <title>Menu</title>
+</head>
+<body>
+  <div class="menu-container">
+    <% include ./partials/_header %>
+    <div>
+      <h1 class="reset resto-name" data-restaurant_id="<%= data[0].restaurant_id%>"><%= data[0].restaurant_name %></h1>
+    </div>
+    <div class="menu-main">
+      <div class="items">
+        <% for (let item of data) { %>
+        <div class="item" data-id="<%=item.id%>">
+          <h2 class="reset" id="item-name"><%= item.item_name %></h2>
+          <p class="item-desc"><%=item.description%></p>
+          $<span><%= item.price/100 %></span>
+        </div>
+        <% } %>
+      </div>
+      <div id="cart" class="cart-effects">
+        <h2 class="reset">Cart</h2>
+        </br>
+        <form method="POST" action="/checkout" id="cart-items">
+          <div id="cart-item">
+          </div>
+          </br>
+              <div class="cart-total">
+              </div>
+          </br>
+          </br>
+          <button class="submit-btn">Submit</button>
+          <script
+            src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="pk_test_uo8K69V2jUSIOYo0kLyqk4tk005kzM0VPH"
+            data-amount="0"
+            data-name="<%= data[0].restaurant_name %>"
+            data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+            data-locale="auto"
+            data-zip-code="true"
+            <input name="item_id" value="SOMEVALUEHERE" type="hidden">
+          >
+          </script>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
