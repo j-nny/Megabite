@@ -29,7 +29,7 @@
     <div class="items">
         <%  for (let i = 0; i < trueOrder[prop].length; i++){ %>
           <p><%=trueOrder[prop][i].quantity %> x <%=trueOrder[prop][i].item_name %></p>
-          <p>Total: <%=trueOrder[prop][i].quantity %> x <%=trueOrder[prop][i].item_name %></p>
+          <p><%=trueOrder[prop][i].quantity %> x <%=trueOrder[prop][i].item_name %></p>
           <% } %>
     </div>
 
@@ -49,17 +49,21 @@
   <div class="title">
     <h2>Completed Orders</h2>
   </div>
+
   <%  falseProperties.forEach(function (prop) { %>
+    <% let result = 0 %>
   <div class="order">
     <div class="customer">
       <h2><%= falseOrder[prop][0].first_name %></h2>
-      <p>Ordered at:</br><%= falseOrder[prop][0].time_entered %></p>
+      <p>Ordered at:</br><%= new Date(falseOrder[prop][0].time_entered).toDateString() %>, <%= new Date(falseOrder[prop][0].time_entered).toLocaleTimeString() %></p>
     </div>
     <div class="items">
       <%  for (let i = 0; i < falseOrder[prop].length; i++){ %>
+
       <p><%=falseOrder[prop][i].quantity %> x <%=falseOrder[prop][i].item_name %></p>
-      <p>Total: $10.00</p>
+        <p><% result += falseOrder[prop][i].quantity * (falseOrder[prop][i].price/100) %></p>
       <% } %>
+      <p>Total: $<%= result.toFixed(2) %></p>
     </div>
   </div>
   <% }) %>

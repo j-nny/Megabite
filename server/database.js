@@ -126,7 +126,7 @@ const ownerLogin =  function(email, password) {
 exports.ownerlogin = ownerLogin;
 
 const getRestaurantOrders = function (owner_id, active) {
-  return db.query (`SELECT orders.time_entered, orders.id as order_id, items.id as item_id, items.name as item_name, order_items.quantity as quantity, users.first_name, users.last_name
+  return db.query (`SELECT orders.time_entered, orders.id as order_id, items.id as item_id, items.price as price, items.name as item_name, order_items.quantity as quantity, users.first_name, users.last_name
   FROM restaurants
   JOIN orders ON restaurants.id = orders.restaurant_id
   JOIN order_items ON orders.id = order_items.order_id
