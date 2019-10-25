@@ -20,37 +20,48 @@
     <div class="title">
       <h2>Active Orders</h2>
     </div>
+  <%  trueProperties.forEach(function (prop) { %>
     <div class="order">
     <div class="customer">
-      <h2>User Name</h2>
-      <p>Ordered at:</br>Oct 10, 2019 10:30AM</p>
+      <h2><%= trueOrder[prop][0].first_name %></h2>
+      <p>Ordered at:</br><%= trueOrder[prop][0].time_entered%></p>
     </div>
     <div class="items">
-      <p>1 x Pork Dumpling</br>1 x Pork and Shrimp Dumpling</br></br>Total: $10.00</p>
+        <%  for (let i = 0; i < trueOrder[prop].length; i++){ %>
+          <p><%=trueOrder[prop][i].quantity %> x <%=trueOrder[prop][i].item_name %></p>
+          <p>Total: <%=trueOrder[prop][i].quantity %> x <%=trueOrder[prop][i].item_name %></p>
+          <% } %>
     </div>
+
     <form method="POST" action="/ownerOrder">
       <div class="status">
         <input name="timeSet" type="number" step="5" min=5 value=15>
+        <input hidden type="text" name="order_id" value="<%= trueOrder[prop][0].order_id %>">
       </div>
       <div>
         <button>Accept</button>
       </div>
     </form>
   </div>
+  <% }) %>
 
   <% include ./partials/_ownerHeader %>
   <div class="title">
     <h2>Completed Orders</h2>
   </div>
+  <%  falseProperties.forEach(function (prop) { %>
   <div class="order">
-  <div class="customer">
-    <h2>User Name</h2>
-    <p>Ordered at:</br>Oct 10, 2019 10:30AM</p>
+    <div class="customer">
+      <h2><%= falseOrder[prop][0].first_name %></h2>
+      <p>Ordered at:</br><%= falseOrder[prop][0].time_entered %></p>
+    </div>
+    <div class="items">
+      <%  for (let i = 0; i < falseOrder[prop].length; i++){ %>
+      <p><%=falseOrder[prop][i].quantity %> x <%=falseOrder[prop][i].item_name %></p>
+      <p>Total: $10.00</p>
+      <% } %>
+    </div>
   </div>
-  <div class="items">
-    <p>1 x Pork Dumpling</br>1 x Pork and Shrimp Dumpling</br></br>Total: $10.00</p>
-  </div>
-</div>
-
+  <% }) %>
 </body>
 </html>

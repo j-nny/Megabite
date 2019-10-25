@@ -9,7 +9,7 @@ const authToken = process.env.authToken;
 
 router.post('/', (req, res) => {
   let order = req.body;
-  console.log(">>>>>>>>>>>>>This is the restaurant id", order.restaurant_id);
+  // console.log(">>>>>>>>>>>>>This is the restaurant id", order.restaurant_id);
   db.addOrder(req.session.user_id, order.restaurant_id)
     .then(function (res) {
       // console.log("THIS IS THE ORDER ID", res.rows[0].id);
