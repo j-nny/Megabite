@@ -1,17 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Home Page</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/ownerOrder.css" type="text/css" />
+  <link rel="shortcut icon" type="image/png" href="/images/fav.png"/>
 
-    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="/scripts/app.js"></script>
-  </head>
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/login.js"> </script>
 
-  <body>
-    <header><% include ./partials/_header %></header>
-  </body>
+  <title>Megabite</title>
+</head>
+<body>
+  <% include ./partials/_ownerHeader %>
+    <div class="title">
+      <h2>Active Orders</h2>
+    </div>
+  <%  trueProperties.forEach(function (prop) { %>
+    <div class="order">
+    <div class="customer">
+      <h2><%= trueOrder[prop][0].first_name %></h2>
+      <p>Ordered at:</br><%= trueOrder[prop][0].time_entered%></p>
+    </div>
+    <div class="items">
+        <%  for (let i = 0; i < trueOrder[prop].length; i++){ %>
+          <p><%=trueOrder[prop][i].quantity %> x <%=trueOrder[prop][i].item_name %></p>
+          <p>Total: <%=trueOrder[prop][i].quantity %> x <%=trueOrder[prop][i].item_name %></p>
+          <% } %>
+    </div>
+
+    <form method="POST" action="/ownerOrder">
+      <div class="status">
+        <input name="timeSet" type="number" step="5" min=5 value=15>
+        <input hidden type="text" name="order_id" value="<%= trueOrder[prop][0].order_id %>">
+      </div>
+      <div>
+        <button>Accept</button>
+      </div>
+    </form>
+  </div>
+  <% }) %>
+
+  <% include ./partials/_ownerHeader %>
+  <div class="title">
+    <h2>Completed Orders</h2>
+  </div>
+  <%  falseProperties.forEach(function (prop) { %>
+  <div class="order">
+    <div class="customer">
+      <h2><%= falseOrder[prop][0].first_name %></h2>
+      <p>Ordered at:</br><%= falseOrder[prop][0].time_entered %></p>
+    </div>
+    <div class="items">
+      <%  for (let i = 0; i < falseOrder[prop].length; i++){ %>
+      <p><%=falseOrder[prop][i].quantity %> x <%=falseOrder[prop][i].item_name %></p>
+      <p>Total: $10.00</p>
+      <% } %>
+    </div>
+  </div>
+  <% }) %>
+</body>
 </html>

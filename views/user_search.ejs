@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/searchResult.css" type="text/css" />
+    <link rel="shortcut icon" type="image/png" href="/images/fav.png"/>
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
@@ -15,7 +16,7 @@
 
   <body>
     <div class="page-container">
-      <header><% include ./partials/_header %></header>
+      <% include ./partials/_header %>
       <div class="container">
         <main>
           <div id="browseHistory">
@@ -29,42 +30,17 @@
             <div class="searchResults">
               <div id="result">
                 <div id="result_img">
-                  <img class="thumb_resize" src="https://image.shutterstock.com/image-illustration/cute-cartoon-dim-sum-traditional-260nw-1063999892.jpg">
+                  <img class="thumb_resize" src=<%=i.image%>>
                 </div>
                 <div id="result-description">
                   <h2 class="reset"><%= i.name %></h2>
-                  <p><%=i.address%></br>5 minutes away</p>
                   <p><%= i.category%></p>
+                  <p><%=i.address%></br>5 minutes away</p>
                 </div>
               </div>
             </div>
           </a>
             <% }%>
-            <!-- <div class="searchResults">
-              <div id="result">
-                <div id="result_img">
-                  <img class="thumb_resize" src="https://image.shutterstock.com/image-illustration/cute-cartoon-dim-sum-traditional-260nw-1063999892.jpg">
-                </div>
-                <div id="result-description">
-                  <h2 class="reset">Lil BaoBao</h2>
-                  <p>King/Bathurst</br>662 King St W</br>5 minutes away</p>
-                  <p>Chinese Food</br>Please don't eat me.</p>
-                </div>
-              </div>
-            </div>
-            <div class="searchResults">
-              <div id="result">
-                <div id="result_img">
-                  <img class="thumb_resize" src="https://image.shutterstock.com/image-illustration/cute-cartoon-dim-sum-traditional-260nw-1063999892.jpg">
-                </div>
-                <div id="result-description">
-                  <h2 class="reset">Lil BaoBao</h2>
-                  <p>King/Bathurst</br>662 King St W</br>5 minutes away</p>
-                  <p>Chinese Food</br>Please don't eat me.</p>
-                </div>
-              </div>
-            </div> -->
-              <!-- End delete -->
             </div>
         </main>
         <map>

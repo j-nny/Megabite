@@ -17,6 +17,7 @@ CREATE TABLE users (
 
 CREATE TABLE restaurants (
 id SERIAL PRIMARY KEY NOT NULL,
+image TEXT NOT NULL DEFAULT 'https://image.shutterstock.com/image-illustration/cute-cartoon-dim-sum-traditional-260nw-1063999892.jpg',
 owner_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
 name VARCHAR(255) NOT NULL,
 category VARCHAR(255) NOT NULL,
@@ -24,7 +25,7 @@ address VARCHAR(255) NOT NULL,
 city VARCHAR(255) NOT NULL,
 province VARCHAR(255) NOT NULL,
 postal_code VARCHAR(255) NOT NULL,
-active BOOLEAN NOT NULL DEFAULT FALSE
+active BOOLEAN NOT NULL DEFAULT TRUE
 );
 
 CREATE TABLE orders (
@@ -33,7 +34,7 @@ CREATE TABLE orders (
   time_promised TIMESTAMP DEFAULT CURRENT_TIMESTAMP + INTERVAL '15 minute',
   customer_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   restaurant_id INTEGER REFERENCES restaurants(id) ON DELETE CASCADE,
-  active BOOLEAN NOT NULL DEFAULT FALSE
+  active BOOLEAN NOT NULL DEFAULT TRUE
 );
 
 CREATE TABLE menus(

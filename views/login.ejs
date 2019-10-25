@@ -6,6 +6,8 @@
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/styles/login.css" type="text/css" />
+  <link rel="shortcut icon" type="image/png" href="/images/fav.png"/>
+
 
   <!-- Bootstrap CSS -->
   <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"> -->
@@ -15,7 +17,7 @@
 
 <body>
   <!-- Affected by top bootstrap link -->
-  <header><% include ./partials/_header %></header>
+  <% include ./partials/_header %>
   <div class="container" id="container">
     <div class="form-container register-container">
       <form method="POST" action="/register">
@@ -39,7 +41,7 @@
     <div class="overlay-container">
       <div class="overlay">
         <div class="overlay-panel overlay-left">
-          <h1>Welcome Back!</h1>
+          <h1>Already registered?</br>Welcome Back!</h1>
           <button class="formBtn" id="signIn">Login</button>
         </div>
         <div class="overlay-panel overlay-right">

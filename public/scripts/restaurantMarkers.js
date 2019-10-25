@@ -5,14 +5,14 @@ restofeed_callback(
       {
         type: "Feature",
         properties: {
-          place: "Lighthouse Labs",
-          url: "https://www.lighthouselabs.com",
+          place: "Breaking Bread",
+          url: "https://www.breakingbread.com",
           status: "REVIEWED"
         },
         geometry: {
           type: "Point",
           coordinates: [
-            43.644190, -79.402022
+            43.644097, -79.405672
           ]
         },
         id: "1"
@@ -20,14 +20,14 @@ restofeed_callback(
       {
         type: "Feature",
         properties: {
-          place: "Citizen",
-          url: "https://www.elcitizano.com",
+          place: "Pasta La Vista",
+          url: "https://www.pastalavista.com",
           status: "REVIEWED"
         },
         geometry: {
           type: "Point",
           coordinates: [
-            43.645316, -79.397570
+            43.645125, -79.397920
           ]
         },
         id: "2"
@@ -35,17 +35,32 @@ restofeed_callback(
       {
         type: "Feature",
         properties: {
-          place: "Rodney's Oyster House",
-          url: "https://www.rodsoysterhouse.com",
+          place: "Viet Noms",
+          url: "https://www.vietnoms.com",
           status: "REVIEWED"
         },
         geometry: {
           type: "Point",
           coordinates: [
-            43.644962, -79.396821
+            43.643262, -79.399844
           ]
         },
-        id: "2"
+        id: "3"
+      },
+      {
+        type: "Feature",
+        properties: {
+          place: "Lil BaoBao",
+          url: "https://www.lilbaobao.com",
+          status: "REVIEWED"
+        },
+        geometry: {
+          type: "Point",
+          coordinates: [
+            43.643168, -79.402690
+          ]
+        },
+        id: "4"
       }
     ]
   },

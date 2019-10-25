@@ -9,7 +9,7 @@ const authToken = process.env.authToken;
 
 router.post('/', (req, res) => {
   let order = req.body;
-  console.log(">>>>>>>>>>>>>This is the restaurant id", order.restaurant_id);
+  // console.log(">>>>>>>>>>>>>This is the restaurant id", order.restaurant_id);
   db.addOrder(req.session.user_id, order.restaurant_id)
     .then(function (res) {
       // console.log("THIS IS THE ORDER ID", res.rows[0].id);
@@ -23,13 +23,13 @@ router.post('/', (req, res) => {
 
       client.messages
         .create({
-          body: 'Your order will be ready in 15 minutes!',
+          body: 'A customer has made an order!',
           from: '+16476969370',
           to: '+16479902593'
           })
         .then(message => console.log(message.sid));
     });
-  res.redirect("/browse");
+  res.redirect("/history");
 });
 
 module.exports = router

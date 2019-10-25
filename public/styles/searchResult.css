@@ -3,6 +3,10 @@
   grid-template-columns: 200px auto;
 }
 
+.discover {
+  overflow: scroll;
+}
+
 .container {
   max-width: 100vw;
   max-height:100vh;

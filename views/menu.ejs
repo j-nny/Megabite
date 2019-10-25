@@ -8,19 +8,20 @@
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
   <link rel="stylesheet" href="/styles/menu.css" type="text/css" />
+  <link rel="shortcut icon" type="image/png" href="/images/fav.png"/>
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
+  <script type='text/javascript' src='/scripts/config.js'></script>f
 
 
   <title>Menu</title>
 </head>
 <body>
   <div class="menu-container">
-    <header><% include ./partials/_header %></header>
+    <% include ./partials/_header %>
     <div>
       <h1 class="reset resto-name" data-restaurant_id="<%= data[0].restaurant_id%>"><%= data[0].restaurant_name %></h1>
-
     </div>
     <div class="menu-main">
       <div class="items">
@@ -49,11 +50,19 @@
           </div>
         </br>
             <div class="cart-total">
-
             </div>
         </br>
         </br>
-            <button class="submit-btn">Submit</button>
+        <button>hi</button>
+        <button class="hidden"><script
+          src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="pk_test_uo8K69V2jUSIOYo0kLyqk4tk005kzM0VPH"
+          data-amount="0"
+          data-name="<%= data[0].restaurant_name %>"
+          data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+          data-locale="auto"
+          data-zip-code="true">
+        </script></button>
         </form>
       </div>
     </div>
