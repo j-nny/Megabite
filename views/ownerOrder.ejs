@@ -29,13 +29,14 @@
     <div class="items">
         <%  for (let i = 0; i < trueOrder[prop].length; i++){ %>
           <p><%=trueOrder[prop][i].quantity %> x <%=trueOrder[prop][i].item_name %></p>
-          <p>Total: $10.00</p>
+          <p>Total: <%=trueOrder[prop][i].quantity %> x <%=trueOrder[prop][i].item_name %></p>
           <% } %>
     </div>
 
     <form method="POST" action="/ownerOrder">
       <div class="status">
         <input name="timeSet" type="number" step="5" min=5 value=15>
+        <input hidden type="text" name="order_id" value="<%= trueOrder[prop][0].order_id %>">
       </div>
       <div>
         <button>Accept</button>

@@ -23,7 +23,7 @@ router.get('/', (req, res) => {
 
             return acc
           }, {});
-          console.log(falseOrder);
+          // console.log(falseOrder);
           let falseProperties = Object.keys(falseOrder).reverse();
 
       let trueOrder =  result2.rows.reduce(function(acc, order){
@@ -36,7 +36,7 @@ router.get('/', (req, res) => {
 
         return acc
       }, {});
-      console.log(falseOrder);
+      // console.log(falseOrder);
       let trueProperties = Object.keys(trueOrder).reverse();
           let templateVar = {
             user: req.session.user_id,
@@ -78,17 +78,28 @@ router.get('/', (req, res) => {
 
 
 router.post('/', (req, res) => {
-  // res.render("ownerOrder");
-  console.log(req.body)
-  // query to make order active false
-  const client = twilio(accountSid, authToken);
-      client.messages
-        .create({
-          body: `Your order will be ready in ${req.body.timeSet} minutes!`,
-          from: '+16476969370',
-          to: '+16479902593'
-          })
-        .then(message => console.log(message.sid));
+  // console.log("this is order_id ----->", req.body["order_id"]);
+  return db.acceptOrder((Number(req.body.timeSet)|0).toString() + ' minute', req.body["order_id"])
+  .then(res => {
+    if (res) {
+      return res.rows;
+    } else {
+      return null;
+    }
+  })
+  .then(function(){
+    const client = twilio(accountSid, authToken);
+        client.messages
+          .create({
+            body: `Your order will be ready in ${req.body.timeSet} minutes!`,
+            from: '+16476969370',
+            to: '+16479902593'
+            })
+      .then(message => {
+        console.log(message.sid)
+        res.redirect("/ownerOrder");
+      });
+  })
 });
 
 module.exports = router;

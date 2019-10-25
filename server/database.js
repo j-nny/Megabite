@@ -119,3 +119,12 @@ const getRestaurantOrders = function (owner_id, active) {
   ORDER BY orders.id;`, [owner_id, active]);
 };
 exports.getRestaurantOrders = getRestaurantOrders;
+
+const acceptOrder = function (time_promised, order_id) {
+  console.log(time_promised);
+  console.log(order_id);
+  const query = `UPDATE orders SET active = FALSE, time_promised = CURRENT_TIMESTAMP + INTERVAL '${time_promised}' WHERE id = $1`;
+
+  return db.query(query, [order_id]);
+}
+exports.acceptOrder = acceptOrder;
