@@ -12,7 +12,7 @@ router.post('/', (req, res) => {
   console.log(">>>>>>>>>>>>>This is the restaurant id", order.restaurant_id);
   db.addOrder(req.session.user_id, order.restaurant_id)
     .then(function (res) {
-      console.log("THIS IS THE ORDER ID", res.rows[0].id);
+      // console.log("THIS IS THE ORDER ID", res.rows[0].id);
       for (let items in order) {
         if (items !== 'restaurant_id') {
           db.addItems(res.rows[0].id, items, order[items].quantity);

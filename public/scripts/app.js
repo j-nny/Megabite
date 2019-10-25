@@ -71,7 +71,7 @@ $(document).ready(function () {
     $('.cart-total').text(totalSum.toFixed(2));
   });
 
-  $('form').on("submit", function (event) {
+  $('#cart-items').on("submit", function (event) {
     event.preventDefault();
     allOrders["restaurant_id"] = Number(restaurant_id);
     $.ajax({

@@ -21,14 +21,14 @@ router.get('/', (req, res) => {
   })
   .catch(err => console.error(err));
 
-  (async () => {
-    const charge = await stripe.charges.create({
-      amount: 0,
-      currency: 'cad',
-      source: 'tok_visa',
-      receipt_email: 'j.nguy809@gmail.com',
-    });
-  })();
+  // (async () => {
+  //   const charge = await stripe.charges.create({
+  //     amount: 0,
+  //     currency: 'cad',
+  //     source: 'tok_visa',
+  //     receipt_email: 'j.nguy809@gmail.com',
+  //   });
+  // })();
 });
 
 module.exports = router;

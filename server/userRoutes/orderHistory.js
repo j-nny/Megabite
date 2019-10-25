@@ -21,7 +21,7 @@ router.get('/', (req, res) => {
       // let duplicates = orderIdArray.filter(function(itm, i){
       //   return orderIdArray.lastIndexOf(itm) === i && orderIdArray.indexOf(itm) != i;
       // });
-      console.log(data);
+      console.log( );
       let orderObject = data.reduce(function(acc, order){
         // console.log(order.order_id);
         // console.log(acc);
@@ -52,7 +52,7 @@ router.get('/', (req, res) => {
       // console.log(orderObject["1"].length)
       properties.forEach(function (prop) {
         for (let i = 0; i < orderObject[prop].length; i++){
-        console.log(`PropertyName: ${prop}, its Value: ${orderObject[prop][i].order_id}`)
+        // console.log(`PropertyName: ${prop}, its Value: ${orderObject[prop][i].order_id}`)
         }
       });
 

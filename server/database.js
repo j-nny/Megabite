@@ -80,3 +80,10 @@ const getOrderHistory = function(user_id){
   `, [user_id]);
  }
  exports.getOrderHistory = getOrderHistory;
+
+ const getCategory = function(cat) {
+  return db.query(`SELECT * FROM restaurants
+  WHERE category LIKE $1;
+  `, [cat.charAt(0).toUpperCase().concat(cat.slice(1).toLowerCase())])
+ }
+exports.getCategory = getCategory;

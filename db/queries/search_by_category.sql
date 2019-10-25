@@ -1,1 +1,1 @@
-SELECT * FROM restaurants WHERE category LIKE '%burgers%';
+SELECT * FROM restaurants WHERE category LIKE '%pho%';

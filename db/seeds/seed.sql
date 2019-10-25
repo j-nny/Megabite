@@ -3,7 +3,7 @@
 INSERT INTO users (first_name, last_name, email, password, phone_number, role) VALUES
 ('Rick', 'Sandchez', 'rick.sandchez@gmail.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', '1234567890', 'customer'),
 ('Lisa', 'Simpson', 'lisa.simpson@gmail.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', '1112131415', 'owner'),
-('Link', 'Link', 'link@yahoo.com', 'hyrule', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', 'customer'),
+('Link', 'Link', 'link@yahoo.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', '1112232415', 'customer'),
 ('Simon', 'Belmont', 'simon_bel123@mail.ca', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', '2122232425', 'owner'),
 ('Ha', 'Phamo', 'ha@mail.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', '2120005555', 'owner'),
 ('Beast', 'Master', 'thebeastman@mail.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', '2120008888', 'owner');
@@ -52,5 +52,3 @@ INSERT INTO items (course, name, description, price, size, menu_id, active) VALU
 INSERT INTO order_items (order_id, item_id, quantity) VALUES
 (1, 1, 1),
 (2, 2, 1);
-
-
