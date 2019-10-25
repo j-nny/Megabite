@@ -31,7 +31,7 @@
             <% for (let i = 0; i < previousOrder.length; i++) { %>
             <p><%= previousOrder[i].quantity %> x <%= previousOrder[i].item_name %></p>
             <% } %>
-            <p><%= previousOrder[0].time_entered %></p>
+            <p>Ordered at:</br><%= new Date(previousOrder[0].time_entered).toDateString() %>, <%= new Date(previousOrder[0].time_entered).toLocaleTimeString() %></p>
           </div>
         </div>
         <% for (let item of data) { %>

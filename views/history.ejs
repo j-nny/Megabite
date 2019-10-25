@@ -46,7 +46,7 @@
                   <%= orderObject[prop][i].quantity %> x <%= orderObject[prop][i].item_name%></br>
                   <% } %>
                   </p>
-                <p><%= orderObject[prop][0].time_entered %></p>
+                <p><%= new Date(orderObject[prop][0].time_entered).toDateString() %>, <%= new Date(orderObject[prop][0].time_entered).toLocaleTimeString() %></p>
               </div>
             </div>
           </div>

@@ -46,7 +46,7 @@ $(document).ready(function () {
       // console.log($(".menu-container").data("restaurant_id"));
       for (let id in allOrders) {
 
-        $newInput = $(`<div class="cart${id}"><input id="${id}" class="cart${id} quantity" type="number" value="${allOrders[id].quantity}" min="1"> ${allOrders[id].name} | Price: <span class="cart-item-price${id}">${(Number(allOrders[id].price) * allOrders[id].quantity).toFixed(2)}</span></br></div>`);
+        $newInput = $(`<div class="cart${id}"><input id="${id}" class="cart${id} quantity" type="number" value="${allOrders[id].quantity}" min="1"> ${allOrders[id].name} | Price: $<span class="cart-item-price${id}">${(Number(allOrders[id].price) * allOrders[id].quantity).toFixed(2)}</span></br></div>`);
         $("#cart-item").append($newInput);
         $newBtn = $(`<div><button type="button" class="cart${id} remove-btn">Remove</button></br></div>`)
         $("#cart-item").append($newBtn);
@@ -68,7 +68,7 @@ $(document).ready(function () {
       totalSum += (allOrders[id].quantity * allOrders[id].price);
     }
     console.log(totalSum);
-    $('.cart-total').text(totalSum.toFixed(2));
+    $('.cart-total').text(`Total: $${totalSum.toFixed(2)}`);
   });
 
   $('#cart-items').on("submit", function (event) {

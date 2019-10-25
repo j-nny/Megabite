@@ -21,21 +21,23 @@
       <h2>Active Orders</h2>
     </div>
   <%  trueProperties.forEach(function (prop) { %>
+    <% let result1 = 0 %>
     <div class="order">
     <div class="customer">
       <h2><%= trueOrder[prop][0].first_name %></h2>
-      <p>Ordered at:</br><%= trueOrder[prop][0].time_entered%></p>
+      <p>Ordered at:</br><%= new Date(trueOrder[prop][0].time_entered).toDateString() %>, <%= new Date(trueOrder[prop][0].time_entered).toLocaleTimeString() %></p>
     </div>
     <div class="items">
         <%  for (let i = 0; i < trueOrder[prop].length; i++){ %>
-          <p><%=trueOrder[prop][i].quantity %> x <%=trueOrder[prop][i].item_name %></p>
-          <p><%=trueOrder[prop][i].quantity %> x <%=trueOrder[prop][i].item_name %></p>
-          <% } %>
+        <p><%=trueOrder[prop][i].quantity %> x <%=trueOrder[prop][i].item_name %></p>
+           <p><% result1 += trueOrder[prop][i].quantity * (trueOrder[prop][i].price/100) %></p>
+        <% } %>
+        <p>Total: $<%= result1.toFixed(2) %></p>
     </div>
 
     <form method="POST" action="/ownerOrder">
       <div class="status">
-        <input name="timeSet" type="number" step="5" min=5 value=15>
+        <input name="timeSet" type="number" step="5" min="5" value="15">
         <input hidden type="text" name="order_id" value="<%= trueOrder[prop][0].order_id %>">
       </div>
       <div>
