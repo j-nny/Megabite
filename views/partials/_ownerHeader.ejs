@@ -8,10 +8,10 @@
       <a style="color:white;text-transform:uppercase;font-size:12px">a quick fix for hungry devs</a>
     </div>
     <div class="navbar-nav ml-auto">
-      <% if (true) { %>
-        <button class="navbar-btn">Logout</button>
+      <% if (user) { %>
+        <a href="/logout" class="navbar-btn">Logout</a>
       <% } else { %>
-        <button class="navbar-btn">Register</button>
+        <a href="/login" class="navbar-btn">Customer?</a>
       <% } %>
     </div>
   </div>
