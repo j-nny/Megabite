@@ -1,5 +1,5 @@
 # Megabite
-A quick fix for hungry devs
+###### A quick fix for hungry devs
 =========  
 
 A ritual-like restaurant ordering app for nearby restaurants. This app is client-facing (users can find restaurants and place orders) and restaurant facing (restaurants can receive and confirm orders). Google Maps API integrated to provide visual markers of restaurant locations. Twilio API integrated to allow restaurants and users to receive SMS notifications when the order is placed and ready for pick up.
