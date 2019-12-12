@@ -24,3 +24,8 @@ A ritual-like restaurant ordering app for nearby restaurants. This app is client
 Jenny Nguy: https://github.com/j-nny/
 Peter Hang: https://github.com/peterhangg/
 Jad K: https://github.com/jadk97/
+
+## Getting Started
+
+Install all dependencies (using the npm install command).
+Run the development web server using the npm start command.
